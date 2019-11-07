@@ -1,16 +1,19 @@
-# The Golden Hour
-![Image](./logo.png)
+# Travel Seeker
+![Image](flyingdino.gif)
 
 
-## Project 3 - SEI
+## Project 3 - SEI Collaboration
 
-blabh
+To help travellers find affordable and fun places to visit.  And share their travel experiences from a curated list of countries
 
 ## Features
 
 **MVP:**
 
-1. blah
+1. List of 10 countries based on affordability.  Details are stored in a PostgreSQL DB and exposed as an API using Express
+2. Users can add photos of their experiences. A user must log in to add photos
+3. Homepage will show a list of all countries
+4. Clicking on a specific country will show attributes such as exchange rate, best time to visit, cost of an inexpensive meal, cost of a night at a hostel, and capital city
 
 
 **Post-MVP:**
