@@ -17,8 +17,9 @@ To help travellers find affordable and fun places to visit.  And share their tra
 
 5. Ian change test
 **Post-MVP:**
-
-1. blah
+1. For each country's show page, have information about 2-3 of the nation's most famous sites or activities to visit. 
+2. Have an approval process for user submitted photos.
+3. 
 
 ## Technologies: REACT, HTML, CSS, AJAX
 API used: 
