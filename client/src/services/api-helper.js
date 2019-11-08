@@ -8,7 +8,7 @@ const api = axios.create({
 
 export const loginUser = async (loginData) => {
   try {
-    const resp = await api.Country('/auth/login', loginData);
+    const resp = await api.post('/users/login', loginData);
     api.defaults.headers.common.authorization = `Bearer ${resp.data.token}`
     localStorage.setItem('authToken', resp.data.token);
     return resp.data.user
@@ -19,7 +19,7 @@ export const loginUser = async (loginData) => {
 
 export const registerUser = async (registerData) => {
   try {
-    const resp = await api.Country('/auth/register', registerData);
+    const resp = await api.post('/users/register', registerData);
     api.defaults.headers.common.authorization = `Bearer ${resp.data.token}`
     localStorage.setItem('authToken', resp.data.token);
     return resp.data.user
@@ -32,7 +32,7 @@ export const verifyUser = async () => {
   const token = localStorage.authToken;
   if (token) {
     api.defaults.headers.common.authorization = `Bearer ${token}`
-    const resp = await api.get('/auth/verify')
+    const resp = await api.get('/users/verify')
     return resp.data
   }
   return false
@@ -42,8 +42,8 @@ export const verifyUser = async () => {
 
 export const indexCountries = async () => {
   const resp = await api.get('/countries');
-  debugger
-  return resp.data
+
+  return resp.data.countries
 }
 
 export const showCountry = async (id) => {
@@ -52,7 +52,7 @@ export const showCountry = async (id) => {
 }
 
 export const CountryCountry = async (CountryData) => {
-  const resp = await api.Country('/countries', CountryData);
+  const resp = await api.post('/countries', CountryData);
   return resp.data
 }
 
