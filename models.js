@@ -28,9 +28,9 @@ Country.init({
   capital: Sequelize.STRING,
   currency: Sequelize.STRING,
   best_time_to_visit: Sequelize.STRING,
-  meal_cost: Sequelize.INT,
-  hostel_cost: Sequelize.INT,
-  description: Sequelize.VARCHAR(700)
+  meal_cost: Sequelize.INTEGER,
+  hostel_cost: Sequelize.INTEGER,
+  description: Sequelize.STRING(700)
 }, {
   sequelize,
   modelName: "country",

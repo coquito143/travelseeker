@@ -3,9 +3,9 @@ const PORT = process.env.PORT || 3000;
 const logger = require('morgan');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const userRouter = require('./routes/userRouter')
 const countryRouter = require('./routes/countryRouter')
 const photoRouter = require('./routes/photoRouter')
+const userRouter = require('./routes/userRouter')
 
 
 

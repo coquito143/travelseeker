@@ -101,4 +101,4 @@ const main = async () => {
   process.exit();
 }
 
-seed();
+main();
