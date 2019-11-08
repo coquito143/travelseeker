@@ -1,4 +1,4 @@
-# Travel Seeker
+![Image](logo.png)
 ![Image](flyingdino.gif)
 
 
