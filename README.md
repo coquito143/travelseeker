@@ -25,11 +25,11 @@ To help travellers find affordable and fun places to visit.  And share their tra
 API used: 
 
 ## Wireframe
-###Index Page
-![Image](https://imgur.com/duECg4b)
+### Index Page
+![Image](IndexPageWireframe.png)
 
-###Show Page
-![Image](https://imgur.com/Tvc1ozw)
+### Show Page
+![Image](ShowPageWireframe.png)
 
 
 ## Our Journey
