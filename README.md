@@ -31,6 +31,9 @@ API used:
 ### Show Page
 ![Image](ShowPageWireframe.png)
 
+### User Page
+
+![Image](User-Page-Wireframe.png)
 
 ## Our Journey
 
