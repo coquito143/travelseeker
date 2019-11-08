@@ -29,12 +29,12 @@ Country.init({
   currency: Sequelize.STRING,
   best_time_to_visit: Sequelize.STRING,
   meal_cost: Sequelize.INT,
-  hostel_cost: Sequelize.INT
+  hostel_cost: Sequelize.INT,
+  description: Sequelize.VARCHAR(700)
 }, {
   sequelize,
   modelName: "country",
 });
-
 
 class Photo extends Sequelize.Model { }
 
