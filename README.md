@@ -1,6 +1,6 @@
-# Travel Seeker
-![Image](flyingdino.gif)
 ![Image](logo.png)
+![Image](flyingdino.gif)
+
 
 ## Project 3 - SEI Collaboration
 
