@@ -1,8 +1,5 @@
 const { Country } = require('./models');
 
-
-
-
 const main = async () => {
   await Country.destroy({
     where: {},
