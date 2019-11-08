@@ -15,10 +15,11 @@ To help travellers find affordable and fun places to visit.  And share their tra
 3. Homepage will show a list of all countries
 4. Clicking on a specific country will show attributes such as exchange rate, best time to visit, cost of an inexpensive meal, cost of a night at a hostel, and capital city
 
-5. Ian change test
 **Post-MVP:**
+1. For each country's show page, have information about 2-3 of the nation's most famous sites or activities to visit. 
+2. Have an approval process for user submitted photos.
+3. Add weather information for a popular location in each country.
 
-1. blah
 
 ## Technologies: REACT, HTML, CSS, AJAX
 API used: 
