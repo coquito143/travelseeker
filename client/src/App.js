@@ -69,7 +69,7 @@ class App extends Component {
               home
             </i> <p>Home</p></Link>
           </div>
-          <h1>Travel Seeker</h1>
+          <h1>travelSeeker</h1>
           {
             currentUser ?
               <div>
@@ -85,38 +85,46 @@ class App extends Component {
             currentUser={this.state.currentUser}
           />
         )} /> */}
-        <div class="cover-img-div">
-          <img id="cover-img" src="https://images.unsplash.com/photo-1503221043305-f7498f8b7888" />
-          <i class="material-icons">
-            play_for_work
-          </i>
-        </div>
-        <Route exact path='/' render={() => (
-          <CountriesList
-            countries={this.state.countries}
-          />
-        )} />
-        <Route path='/login' render={() => (
-          <LoginForm
-            handleLogin={this.handleLogin}
-            authErrorMessage={this.state.authErrorMessage}
-          />
-        )} />
-        <Route path='/register' render={() => (
-          <RegisterForm
-            handleRegister={this.handleRegister}
-            authErrorMessage={this.state.authErrorMessage}
-          />
-        )} />
+        <main>
 
-        <Route exact path='/countries/:id' render={(props) => (
-          <SingleCountry
-            // destroyCountry={this.destroyPost}
-            countryId={props.match.params.id}
-            countries={this.state.countries}
-            currentUser={this.props.currentUser}
-          />
-        )} />
+          <Route exact path='/' render={() => (
+            <React.Fragment>
+              <div class="cover-img-div">
+                <img id="cover-img" src="https://images.unsplash.com/photo-1503221043305-f7498f8b7888" />
+                <a href="#countries-div"><h2 id="cover-img-h2">View Countries</h2><i id="arrow-down" class="material-icons">
+                  play_for_work
+                    </i></a>
+              </div>
+              <CountriesList
+                countries={this.state.countries}
+              />
+            </React.Fragment>
+          )} />
+          <Route path='/login' render={() => (
+            <LoginForm
+              handleLogin={this.handleLogin}
+              authErrorMessage={this.state.authErrorMessage}
+            />
+          )} />
+          <Route path='/register' render={() => (
+            <RegisterForm
+              handleRegister={this.handleRegister}
+              authErrorMessage={this.state.authErrorMessage}
+            />
+          )} />
+
+          <Route exact path='/countries/:id' render={(props) => (
+            <SingleCountry
+              // destroyCountry={this.destroyPost}
+              countryId={props.match.params.id}
+              countries={this.state.countries}
+              currentUser={this.props.currentUser}
+            />
+          )} />
+        </main>
+        <footer>
+          <h3>&#169; 2019 Team ASMI</h3>
+        </footer>
       </div>
     );
   }
