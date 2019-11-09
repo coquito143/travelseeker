@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Route, Link, withRouter } from 'react-router-dom';
-import { registerUser, loginUser, verifyUser } from './services/api-helper'
+import { registerUser, loginUser, verifyUser, indexCountries } from './services/api-helper'
 import CountriesContainer from './components/CountriesContainer';
+import CountriesList from './components/CountriesList';
+import SingleCountry from './components/SingleCountry';
 import RegisterForm from './components/RegisterForm';
 import LoginForm from './components/LoginForm';
 
 class App extends Component {
   state = {
+    countries: [],
     currentUser: null,
     authErrorMessage: ""
   }
@@ -50,8 +53,10 @@ class App extends Component {
     }
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     this.handleVerify();
+    const countries = await indexCountries();
+    this.setState({ countries })
   }
 
   render() {
@@ -59,7 +64,12 @@ class App extends Component {
     return (
       <div className="App">
         <nav>
-          <Link to="/countries">List of countries</Link>
+          <div id="home-div">
+            <Link to="/"><i class="material-icons">
+              home
+            </i> <p>Home</p></Link>
+          </div>
+          <h1>Travel Seeker</h1>
           {
             currentUser ?
               <div>
@@ -70,9 +80,20 @@ class App extends Component {
               <Link to='/login'><button>Login/Register</button></Link>
           }
         </nav>
-        <Route path='/countries' render={() => (
+        {/* <Route exact path='/' render={() => (
           <CountriesContainer
             currentUser={this.state.currentUser}
+          />
+        )} /> */}
+        <div class="cover-img-div">
+          <img id="cover-img" src="https://images.unsplash.com/photo-1503221043305-f7498f8b7888" />
+          <i class="material-icons">
+            play_for_work
+          </i>
+        </div>
+        <Route exact path='/' render={() => (
+          <CountriesList
+            countries={this.state.countries}
           />
         )} />
         <Route path='/login' render={() => (
@@ -85,6 +106,15 @@ class App extends Component {
           <RegisterForm
             handleRegister={this.handleRegister}
             authErrorMessage={this.state.authErrorMessage}
+          />
+        )} />
+
+        <Route exact path='/countries/:id' render={(props) => (
+          <SingleCountry
+            // destroyCountry={this.destroyPost}
+            countryId={props.match.params.id}
+            countries={this.state.countries}
+            currentUser={this.props.currentUser}
           />
         )} />
       </div>

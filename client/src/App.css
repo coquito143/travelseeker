@@ -3,6 +3,68 @@
   text-align: center;
 }
 
+nav {
+  background-color: rgba(0, 0, 0, .6);
+  color: white;
+  height: 7vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+}
+
+nav h1 {
+  font-family: 'Maven Pro', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+#home-div {
+  display: flex;
+  flex-direction: row;
+  width: 150px;
+}
+
+#home-div p {
+  display: inline;
+  margin-bottom: 2vh;
+}
+
+.material-icons {
+  margin-top: 1vh;
+  margin-left: 1vh;
+  font-size: 2.5em;
+}
+
+a {
+  color: inherit;
+}
+
+a:visited  {
+  color: inherit;
+}
+
+#cover-img {
+  height: 100vh;
+  width: 100vw;
+}
+
+/* #cover-img-div i {
+  position: fixed;
+  top: -10;
+  right: 50;
+} */
+
+.countries-div {
+  height: 100vh;
+}
+
 img {
-  max-width: 300px;
+  width: 300px;
+}
+
+footer {
+  background-color: black;
+  color: white;
+  height: 7vh;
 }
