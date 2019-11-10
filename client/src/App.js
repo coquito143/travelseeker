@@ -69,7 +69,7 @@ class App extends Component {
               home
             </i> <p>Home</p></Link>
           </div>
-          <h1>travelSeeker</h1>
+          <h1>travel$eeker</h1>
           {
             currentUser ?
               <div>
@@ -91,9 +91,10 @@ class App extends Component {
             <React.Fragment>
               <div class="cover-img-div">
                 <img id="cover-img" src="https://images.unsplash.com/photo-1503221043305-f7498f8b7888" />
-                <a href="#countries-div"><h2 id="cover-img-h2">View Countries</h2><i id="arrow-down" class="material-icons">
-                  play_for_work
-                    </i></a>
+                <a href="#countries-div">
+                  <h2 id="cover-img-h2">View Countries</h2>
+                  <i id="arrow-down" class="material-icons animated bounce">play_for_work</i>
+                </a>
               </div>
               <CountriesList
                 countries={this.state.countries}
