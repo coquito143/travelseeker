@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Route, Link, withRouter } from 'react-router-dom';
-import { registerUser, loginUser, verifyUser } from './services/api-helper'
-import CountriesContainer from './components/CountriesContainer';
+import { registerUser, loginUser, verifyUser, indexCountries } from './services/api-helper'
+// import CountriesContainer from './components/CountriesContainer';
+import CountriesList from './components/CountriesList';
+import SingleCountry from './components/SingleCountry';
 import RegisterForm from './components/RegisterForm';
 import LoginForm from './components/LoginForm';
 
 class App extends Component {
   state = {
+    countries: [],
     currentUser: null,
     authErrorMessage: ""
   }
@@ -50,8 +53,10 @@ class App extends Component {
     }
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     this.handleVerify();
+    const countries = await indexCountries();
+    this.setState({ countries })
   }
 
   render() {
@@ -59,7 +64,12 @@ class App extends Component {
     return (
       <div className="App">
         <nav>
-          <Link to="/countries">List of countries</Link>
+          <div id="home-div">
+            <Link to="/"><i class="material-icons">
+              home
+            </i> <p>Home</p></Link>
+          </div>
+          <h1>travel$eeker</h1>
           {
             currentUser ?
               <div>
@@ -70,23 +80,52 @@ class App extends Component {
               <Link to='/login'><button>Login/Register</button></Link>
           }
         </nav>
-        <Route path='/countries' render={() => (
+        {/* <Route exact path='/' render={() => (
           <CountriesContainer
             currentUser={this.state.currentUser}
           />
-        )} />
-        <Route path='/login' render={() => (
-          <LoginForm
-            handleLogin={this.handleLogin}
-            authErrorMessage={this.state.authErrorMessage}
-          />
-        )} />
-        <Route path='/register' render={() => (
-          <RegisterForm
-            handleRegister={this.handleRegister}
-            authErrorMessage={this.state.authErrorMessage}
-          />
-        )} />
+        )} /> */}
+        <main>
+
+          <Route exact path='/' render={() => (
+            <React.Fragment>
+              <div class="cover-img-div">
+                <img id="cover-img" src="https://images.unsplash.com/photo-1503221043305-f7498f8b7888" />
+                <a href="#countries-div">
+                  <h2 id="cover-img-h2">View Countries</h2>
+                  <i id="arrow-down" class="material-icons animated bounce">play_for_work</i>
+                </a>
+              </div>
+              <CountriesList
+                countries={this.state.countries}
+              />
+            </React.Fragment>
+          )} />
+          <Route path='/login' render={() => (
+            <LoginForm
+              handleLogin={this.handleLogin}
+              authErrorMessage={this.state.authErrorMessage}
+            />
+          )} />
+          <Route path='/register' render={() => (
+            <RegisterForm
+              handleRegister={this.handleRegister}
+              authErrorMessage={this.state.authErrorMessage}
+            />
+          )} />
+
+          <Route exact path='/countries/:id' render={(props) => (
+            <SingleCountry
+              // destroyCountry={this.destroyPost}
+              countryId={props.match.params.id}
+              countries={this.state.countries}
+              currentUser={this.props.currentUser}
+            />
+          )} />
+        </main>
+        <footer>
+          <h3>&#169; 2019 Team ASMI</h3>
+        </footer>
       </div>
     );
   }

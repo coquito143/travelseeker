@@ -25,7 +25,7 @@ export default class SingleCountry extends Component {
     const { currentCountry } = this.state;
     const { currentUser } = this.props;
     return (
-      <div>
+      <div id="show-country-div">
         {currentCountry && (
           <>
             <h1>{currentCountry.country_name}</h1>
