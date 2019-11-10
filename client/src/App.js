@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { Route, Link, withRouter } from 'react-router-dom';
 import { registerUser, loginUser, verifyUser, indexCountries } from './services/api-helper'
-import CountriesContainer from './components/CountriesContainer';
+// import CountriesContainer from './components/CountriesContainer';
 import CountriesList from './components/CountriesList';
 import SingleCountry from './components/SingleCountry';
 import RegisterForm from './components/RegisterForm';
