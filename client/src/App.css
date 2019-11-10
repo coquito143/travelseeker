@@ -16,7 +16,7 @@ nav {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  position: fixed;
+  position: absolute;
 }
 
 h1, h2, h3 {
@@ -74,9 +74,14 @@ a:visited  {
   right: 50;
 } */
 
-#countries-div, #show-country-div {
+#countries-div {
   height: 79vh;
   margin-top: 14vh;
+}
+
+#show-country-div {
+  height: 84vh;
+  padding-top: 7vh;
 }
 
 
