@@ -1,29 +1,31 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
+
 
 export default class UpdatePostForm extends Component {
   state = {
-    title: "",
+    country: "",
     image_url: "",
     description: "",
-    fun_fact: ""
+    
   }
 
   setFormData = () => {
     if (this.props.posts.length) {
       const {
-        title,
+        country,
         image_url,
         description,
-        fun_fact,
+       
         ...otherData
       } = this.props.posts.find(post => {
         return post.id === parseInt(this.props.postId)
       })
       this.setState({
-        title,
+        country,
         image_url,
         description,
-        fun_fact
+        
       })
     }
   }
@@ -44,20 +46,20 @@ export default class UpdatePostForm extends Component {
   }
 
   render() {
-    const { title, image_url, description, fun_fact } = this.state;
+    const { country, image_url, description } = this.state;
 
     return (
-      <div>
+      <div >
         <form onSubmit={(e) => {
           e.preventDefault();
           this.props.updatePost(this.props.postId, this.state);
         }}>
-          <label htmlFor="title">title</label>
+          <label htmlFor="country">Country</label>
           <input
             type="text"
-            name="title"
-            id="title"
-            value={title}
+            name="country"
+            id="country"
+            value={country}
             onChange={this.handleChange}
           />
           <br />
@@ -79,16 +81,7 @@ export default class UpdatePostForm extends Component {
             onChange={this.handleChange}
           />
           <br />
-          <label htmlFor="fun_fact">fun fact</label>
-          <input
-            type="text"
-            name="fun_fact"
-            id="fun_fact"
-            value={fun_fact}
-            onChange={this.handleChange}
-          />
-          <br />
-          <button>Submit</button>
+          <button className ='update-button'>Update</button>
         </form>
       </div>
     )

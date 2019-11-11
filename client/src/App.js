@@ -6,8 +6,8 @@ import { registerUser, loginUser, verifyUser, indexCountries } from './services/
 import CountriesList from './components/CountriesList';
 import SingleCountry from './components/SingleCountry';
 import RegisterForm from './components/RegisterForm';
+import UpdatePostForm from './components/UpdatePostForm';
 import LoginForm from './components/LoginForm';
-
 class App extends Component {
   state = {
     countries: [],
@@ -65,9 +65,10 @@ class App extends Component {
       <div className="App">
         <nav>
           <div id="home-div">
-            <Link to="/"><i class="material-icons">
+            <Link to="/"><i className="material-icons">
               home
             </i> <p>Home</p></Link>
+            {/* <Link to= '/updatePosts'>Update</Link> */}
           </div>
           <h1>travel$eeker</h1>
           {
@@ -122,6 +123,14 @@ class App extends Component {
               currentUser={this.state.currentUser}
             />
           )} />
+
+          <Route path='/posts/:id/edit' render={(props) => (
+          <UpdatePostForm
+             posts={this.state.posts}
+             updatePost={this.updatePost}
+             postId={props.match.params.id}
+           />
+         )} /> 
         </main>
         <footer>
           <h3>&#169; 2019 Team ASMI</h3>
