@@ -119,7 +119,7 @@ class App extends Component {
               // destroyCountry={this.destroyPost}
               countryId={props.match.params.id}
               countries={this.state.countries}
-              currentUser={this.props.currentUser}
+              currentUser={this.state.currentUser}
             />
           )} />
         </main>

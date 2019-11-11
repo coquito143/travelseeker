@@ -30,7 +30,8 @@ Country.init({
   best_time_to_visit: Sequelize.STRING,
   meal_cost: Sequelize.INTEGER,
   hostel_cost: Sequelize.INTEGER,
-  description: Sequelize.STRING(700)
+  description: Sequelize.STRING(700),
+  image_url: Sequelize.TEXT
 }, {
   sequelize,
   modelName: "country",
