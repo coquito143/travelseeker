@@ -3,7 +3,9 @@ import React, { Component } from 'react';
 
 
 export default class AddPhoto extends Component {
+  debugger;
   state = {
+
     image_url: "",
     description: ""
   }
@@ -17,6 +19,7 @@ export default class AddPhoto extends Component {
 
   render() {
     return (
+
       <div class="addPhoto">
         <form class="addPhotoForm" onSubmit={(e) => {
           e.preventDefault();

@@ -7,7 +7,7 @@ import CountriesList from './components/CountriesList';
 import SingleCountry from './components/SingleCountry';
 import RegisterForm from './components/RegisterForm';
 import LoginForm from './components/LoginForm';
-// import AddPhoto from './components/AddPhoto';
+import AddPhoto from './components/AddPhoto';
 
 class App extends Component {
   state = {
@@ -123,6 +123,15 @@ class App extends Component {
               currentUser={this.state.currentUser}
             />
           )} />
+          <Route path='/users/:currentUser/countries/:countryId/addphoto' component={(props) => (
+                
+                <AddPhoto
+                  {...props}
+                  countryId={props.match.params.countryId}
+                  userId={props.match.params.currentUser}
+                  />
+                )}
+                />
           {/* <Route exact path='/users/:currentUser/addphoto' render={(props) => (
             <AddPhoto
               countries={this.state.countries}

@@ -41,21 +41,24 @@ export default class SingleCountry extends Component {
             <p>Exchange Rate: </p>
             {currentUser &&
               <div>
-                <Link to={`/users/${currentUser.id}/addphoto`}>
+                <Link to={`/users/${currentUser.id}/countries/${currentCountry.id}/addphoto`}>
                   <button
                     id={currentUser.id}
                     onClick={currentUser.handleClick}>
                     Add Pics
                 </button>
                 </Link>
-                <Route exact path='/users/:currentUser/addphoto' component={(props) => (
-                  <AddPhoto
-                    currentCountry={this.state.currentCountry}
+              {/* <Route path='/users/:currentUser/countries/:countryId/addphoto' component={(props) => (
+                
+                <AddPhoto
+                  {...props}
+                  countryId={props.match.params.countryId}
+                  userId={props.match.params.currentUser}
                   />
                 )}
-                />
-              {/* <Route exact path='/users/:currentUser/addphoto' Component={AddPhoto} /> */}
-            
+                /> */}
+                {/* <Route exact path='/users/:currentUser/addphoto' Component={AddPhoto} /> */}
+
               </div>
             }
 
