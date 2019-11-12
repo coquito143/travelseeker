@@ -1,29 +1,49 @@
 import React, { Component } from 'react'
 import { Link, Route } from 'react-router-dom';
 import AddPhoto from './AddPhoto';
+import { showPhotos } from '../services/api-helper';
+
 
 export default class SingleCountry extends Component {
   state = {
-    currentCountry: null
+    currentCountry: null,
+    photos: []
+
   }
 
-  setCurrentCountry = () => {
-    const currentCountry = this.props.countries.find(country => country.id === parseInt(this.props.countryId))
+  setCurrentCountry = async () => {
+    const currentCountry = await this.props.countries.find(country => country.id === parseInt(this.props.countryId))
     this.setState({ currentCountry })
+    console.log(this.state.currentCountry)
   }
 
-  componentDidMount() {
-    this.setCurrentCountry();
+  setCountryPhotos = async () => {
+    // const photos = await showPhotos(this.state.currentCountry.id)
+    const currentCountryPhotos = this.props.photos.find(photo => photo.countryId === parseInt(this.props.photo.countryId))
+    this.setState({ currentCountryPhotos })
+    console.log(this.state.currentCountryPhotos)
+
   }
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.countryId !== this.props.countryId) {
-      this.setCurrentCountry();
+
+  async componentDidMount() {
+    await this.setCurrentCountry();
+
+    if (this.state.currentCountry) {
+      const photos = await showPhotos(this.state.currentCountry.id)
+      this.setState({ photos })
     }
+
   }
+
+  // componentDidUpdate(prevProps) {
+  //   if (prevProps.countryId !== this.props.countryId) {
+  //     this.setCurrentCountry();
+  //   }
+  // }
 
   render() {
-    console.log(this.props)
+    console.log(this.state)
     const { currentCountry } = this.state;
     const { currentUser } = this.props;
     return (
@@ -39,6 +59,13 @@ export default class SingleCountry extends Component {
             <p>Meal Cost: {currentCountry.meal_cost}</p>
             <p>Hostel Cost: {currentCountry.hostel_cost}</p>
             <p>Exchange Rate: </p>
+            {
+              this.state.photos.map(photo => (
+                <div className="user-Photos">
+                  <img src={photo.image_url} />
+                </div>
+              ))
+            }
             {currentUser &&
               <div>
                 <Link to={`/users/${currentUser.id}/countries/${currentCountry.id}/addphoto`}>
@@ -48,7 +75,7 @@ export default class SingleCountry extends Component {
                     Add Pics
                 </button>
                 </Link>
-              {/* <Route path='/users/:currentUser/countries/:countryId/addphoto' component={(props) => (
+                {/* <Route path='/users/:currentUser/countries/:countryId/addphoto' component={(props) => (
                 
                 <AddPhoto
                   {...props}
