@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Route, Link, withRouter } from 'react-router-dom';
-import { registerUser, loginUser, verifyUser, indexCountries } from './services/api-helper'
+import { registerUser, loginUser, verifyUser, indexCountries, allPhotos } from './services/api-helper'
 // import CountriesContainer from './components/CountriesContainer';
 import CountriesList from './components/CountriesList';
 import SingleCountry from './components/SingleCountry';
@@ -13,7 +13,8 @@ class App extends Component {
   state = {
     countries: [],
     currentUser: null,
-    authErrorMessage: ""
+    authErrorMessage: "",
+    photos: []
   }
 
   handleLogin = async (loginData) => {
@@ -57,8 +58,11 @@ class App extends Component {
   async componentDidMount() {
     this.handleVerify();
     const countries = await indexCountries();
-    this.setState({ countries })
+    const photos = await allPhotos()
+    this.setState({ countries, photos })
+    console.log(photos)
   }
+
 
   render() {
     const { currentUser } = this.state;
@@ -121,17 +125,18 @@ class App extends Component {
               countryId={props.match.params.id}
               countries={this.state.countries}
               currentUser={this.state.currentUser}
+              photos={this.state.photos}
             />
           )} />
           <Route path='/users/:currentUser/countries/:countryId/addphoto' component={(props) => (
-                
-                <AddPhoto
-                  {...props}
-                  countryId={props.match.params.countryId}
-                  userId={props.match.params.currentUser}
-                  />
-                )}
-                />
+
+            <AddPhoto
+              {...props}
+              countryId={props.match.params.countryId}
+              userId={props.match.params.currentUser}
+            />
+          )}
+          />
           {/* <Route exact path='/users/:currentUser/addphoto' render={(props) => (
             <AddPhoto
               countries={this.state.countries}

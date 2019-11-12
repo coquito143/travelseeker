@@ -8,14 +8,30 @@ const { Photo, Country, User } = require('../models.js')
 // index
 photoRouter.get('/', async (req, res) => {
   //the next line will find who the country is. give me all the photos from the countryId
-  const countryId = req.params.countryId
-  const photos = await Photo.findAll({ where: { countryId } })
+  // const countryId = req.params.countryId
+  // const photos = await Photo.findAll({ where: { countryId } })
+  const photos = await Photo.findAll()
+  res.json({ photos })
+  // console.log(photo)
+})
+
+photoRouter.get('/:id/country', async (req, res) => {
+  const id = req.params.id
+  //the next line will find who the country is. give me all the photos from the countryId
+  // const countryId = req.params.countryId
+  // const photos = await Photo.findAll({ where: { countryId } })
+  const photos = await Photo.findAll({
+    where: {
+      countryId: id
+    }
+  })
   res.json({ photos })
 })
 
+
 // show
-photoRouter.get('/:id', async (req, res) => {
-  const id = req.params.id
+photoRouter.get('/:id/user', async (req, res) => {
+  const id = req.params.userId
   const photo = await Photo.findByPk(id)
   res.json({ photo })
 })

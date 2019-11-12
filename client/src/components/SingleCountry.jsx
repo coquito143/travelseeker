@@ -1,26 +1,48 @@
 import React, { Component } from 'react'
 import { Link, Route } from 'react-router-dom';
 import AddPhoto from './AddPhoto';
+import { showPhotos } from '../services/api-helper';
+
 
 export default class SingleCountry extends Component {
+  debugger;
   state = {
-    currentCountry: null
+    currentCountry: null,
+    currentCountryPhotos: null
+
   }
 
-  setCurrentCountry = () => {
-    const currentCountry = this.props.countries.find(country => country.id === parseInt(this.props.countryId))
+  setCurrentCountry = async () => {
+    const currentCountry = await this.props.countries.find(country => country.id === parseInt(this.props.countryId))
     this.setState({ currentCountry })
+    console.log(this.state.currentCountry)
   }
 
-  componentDidMount() {
-    this.setCurrentCountry();
+  setCountryPhotos = async () => {
+    debugger
+    const photos = await showPhotos(this.state.currentCountry.id)
+    // const currentCountryPhotos = this.props.photos.find(photos => photos.id.countryId === parseInt(this.props.countryId))
+    // console.log(currentCountryPhotos)
+    this.setState({ currentCountryPhotos: photos })
   }
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.countryId !== this.props.countryId) {
-      this.setCurrentCountry();
+
+  async componentDidMount() {
+    debugger
+    await this.setCurrentCountry();
+  
+    if (this.state.currentCountry) {
+      const photos = await showPhotos(this.state.currentCountry.id)
+      this.setState({ currentCountryPhotos: photos })
     }
+    
   }
+
+  // componentDidUpdate(prevProps) {
+  //   if (prevProps.countryId !== this.props.countryId) {
+  //     this.setCurrentCountry();
+  //   }
+  // }
 
   render() {
     console.log(this.props)
@@ -48,7 +70,7 @@ export default class SingleCountry extends Component {
                     Add Pics
                 </button>
                 </Link>
-              {/* <Route path='/users/:currentUser/countries/:countryId/addphoto' component={(props) => (
+                {/* <Route path='/users/:currentUser/countries/:countryId/addphoto' component={(props) => (
                 
                 <AddPhoto
                   {...props}
