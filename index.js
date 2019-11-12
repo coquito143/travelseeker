@@ -16,7 +16,7 @@ app.use(cors())
 app.use(bodyParser.json());
 app.use('/countries', countryRouter);
 app.use('/users', userRouter);
-app.use('/users/:userId/photos/:photoId', photoRouter);
+app.use('/photos', photoRouter);
 
 
 
