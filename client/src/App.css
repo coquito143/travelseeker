@@ -83,6 +83,14 @@ a:visited  {
   animation: slidein 7s infinite;
 }
 
+.addPhoto {
+  height: 89vh;
+}
+
+.addPhotoForm {
+  padding-top: 10vh;
+}
+
 @keyframes showup {
     0% {opacity:0;}
     20% {opacity:1;}
