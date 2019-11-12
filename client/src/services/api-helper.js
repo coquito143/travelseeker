@@ -67,8 +67,10 @@ export const destroyCountry = async (id) => {
 }
 
 export const addPhoto = async (photoData) => {
-  debugger;
   const resp = await api.post(`/photos`, photoData);
-  
   return resp.data
+}
+export const getPhotos = async (id) => {
+  const resp = await api.get(`/photos/users/${id}`);
+  return resp.data.photos
 }

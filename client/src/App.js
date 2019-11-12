@@ -8,6 +8,7 @@ import SingleCountry from './components/SingleCountry';
 import RegisterForm from './components/RegisterForm';
 import LoginForm from './components/LoginForm';
 import AddPhoto from './components/AddPhoto';
+import Profile from './components/Profile'
 
 class App extends Component {
   state = {
@@ -75,6 +76,9 @@ class App extends Component {
             currentUser ?
               <div>
                 <p>Hello, {currentUser.username}</p>
+                <br />
+                <Link to='/profile'>My Photos</Link>
+                <br />
                 <button onClick={this.handleLogout}>Logout</button>
               </div>
               :
@@ -120,6 +124,11 @@ class App extends Component {
               // destroyCountry={this.destroyPost}
               countryId={props.match.params.id}
               countries={this.state.countries}
+              currentUser={this.state.currentUser}
+            />
+          )} />
+           <Route path='/profile' render={() => (
+            <Profile
               currentUser={this.state.currentUser}
             />
           )} />
