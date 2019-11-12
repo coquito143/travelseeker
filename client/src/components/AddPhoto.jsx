@@ -22,6 +22,16 @@ export default class AddPhoto extends Component {
           e.preventDefault();
 
         }}>
+          {/* <select>
+            {
+              this.props.countries.map((country) => (
+                <option key={country.id}
+                  value={country.id}>
+                  {country.country_name}
+                </option>
+              ))
+            }
+          </select> */}
           <label htmlFor="image_url">Image URL</label>
           <input
             type="text"

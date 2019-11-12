@@ -7,7 +7,7 @@ import CountriesList from './components/CountriesList';
 import SingleCountry from './components/SingleCountry';
 import RegisterForm from './components/RegisterForm';
 import LoginForm from './components/LoginForm';
-import AddPhoto from './components/AddPhoto';
+// import AddPhoto from './components/AddPhoto';
 
 class App extends Component {
   state = {
@@ -123,11 +123,12 @@ class App extends Component {
               currentUser={this.state.currentUser}
             />
           )} />
-          <Route exact path='/users/:currentUser/addphoto' render={(props) => (
+          {/* <Route exact path='/users/:currentUser/addphoto' render={(props) => (
             <AddPhoto
+              countries={this.state.countries}
             />
           )}
-          />
+          /> */}
         </main>
         <footer>
           <h3>&#169; 2019 Team ASMI</h3>

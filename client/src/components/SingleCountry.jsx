@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
+import AddPhoto from './AddPhoto';
 
 export default class SingleCountry extends Component {
   state = {
@@ -39,13 +40,23 @@ export default class SingleCountry extends Component {
             <p>Hostel Cost: {currentCountry.hostel_cost}</p>
             <p>Exchange Rate: </p>
             {currentUser &&
-              <Link to={`/users/${currentUser.id}/addphoto`}>
-                <button
-                  id={currentUser.id}
-                  onClick={currentUser.handleClick}>
-                  Add Pics
+              <div>
+                <Link to={`/users/${currentUser.id}/addphoto`}>
+                  <button
+                    id={currentUser.id}
+                    onClick={currentUser.handleClick}>
+                    Add Pics
                 </button>
-              </Link>
+                </Link>
+                <Route exact path='/users/:currentUser/addphoto' component={(props) => (
+                  <AddPhoto
+                    currentCountry={this.state.currentCountry}
+                  />
+                )}
+                />
+              {/* <Route exact path='/users/:currentUser/addphoto' Component={AddPhoto} /> */}
+            
+              </div>
             }
 
 
