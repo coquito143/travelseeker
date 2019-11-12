@@ -14,7 +14,7 @@ export default class LoginForm extends Component {
 
   render() {
     return (
-      <form onSubmit={(e) => {
+      <form class="login-form" onSubmit={(e) => {
         e.preventDefault()
         this.props.handleLogin(this.state)
         this.setState({
