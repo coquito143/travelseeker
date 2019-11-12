@@ -38,9 +38,16 @@ export default class SingleCountry extends Component {
             <p>Meal Cost: {currentCountry.meal_cost}</p>
             <p>Hostel Cost: {currentCountry.hostel_cost}</p>
             <p>Exchange Rate: </p>
-            <Link to={`/users/${currentUser.id}/addphoto`}>
-              <button id={currentUser.id} onClick={currentUser.handleClick}>Add Pics</button>
-            </Link>
+            {currentUser &&
+              <Link to={`/users/${currentUser.id}/addphoto`}>
+                <button
+                  id={currentUser.id}
+                  onClick={currentUser.handleClick}>
+                  Add Pics
+                </button>
+              </Link>
+            }
+
 
             {/* // move this to user photo section */}
             {/* {

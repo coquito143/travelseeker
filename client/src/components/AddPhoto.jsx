@@ -17,17 +17,8 @@ export default class AddPhoto extends Component {
 
   render() {
     return (
-      <div>
-        <div>
-          Blank Space
-        </div>
-        <div>
-          Blank Space
-        </div>
-        <div>
-          Blank Space
-        </div>
-        <form onSubmit={(e) => {
+      <div class="addPhoto">
+        <form class="addPhotoForm" onSubmit={(e) => {
           e.preventDefault();
 
         }}>
@@ -49,7 +40,7 @@ export default class AddPhoto extends Component {
             onChange={this.handleChange}
           />
           <br />
-<button>Submit Photo</button>
+          <button>Submit Photo</button>
         </form>
       </div>
     )
