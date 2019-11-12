@@ -123,11 +123,21 @@ class App extends Component {
               currentUser={this.state.currentUser}
             />
           )} />
-          <Route exact path='/users/:currentUser/addphoto' render={(props) => (
+          <Route path='/users/:currentUser/countries/:countryId/addphoto' component={(props) => (
+                
+                <AddPhoto
+                  {...props}
+                  countryId={props.match.params.countryId}
+                  userId={props.match.params.currentUser}
+                  />
+                )}
+                />
+          {/* <Route exact path='/users/:currentUser/addphoto' render={(props) => (
             <AddPhoto
+              countries={this.state.countries}
             />
           )}
-          />
+          /> */}
         </main>
         <footer>
           <h3>&#169; 2019 Team ASMI</h3>

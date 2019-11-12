@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+import { addPhoto } from '../services/api-helper';
 
 
 
 export default class AddPhoto extends Component {
+  debugger;
   state = {
+    userId: null,
+    countryId: null,
     image_url: "",
     description: ""
   }
@@ -15,13 +20,40 @@ export default class AddPhoto extends Component {
     })
   }
 
+  handleSubmit = async (e) => {
+    e.preventDefault()
+    debugger;
+    const response = await addPhoto(this.state);
+    const photo = response.data;
+    // this.setState(prevState => ({
+    //   items: [...prevState.characters, character]
+    // }))
+    // this.props.history.push('/')
+  }
+
+  componentDidMount = (props) => {
+    const userId = this.props.userId;
+    const countryId = this.props.countryId;
+    this.setState({
+      userId, countryId
+    })
+  }
+
   render() {
     return (
-      <div class="addPhoto">
-        <form class="addPhotoForm" onSubmit={(e) => {
-          e.preventDefault();
 
-        }}>
+      <div class="addPhoto">
+        <form class="addPhotoForm" onSubmit={this.handleSubmit} >
+          {/* <select>
+            {
+              this.props.countries.map((country) => (
+                <option key={country.id}
+                  value={country.id}>
+                  {country.country_name}
+                </option>
+              ))
+            }
+          </select> */}
           <label htmlFor="image_url">Image URL</label>
           <input
             type="text"
