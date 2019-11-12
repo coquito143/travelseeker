@@ -83,11 +83,11 @@ a:visited  {
   animation: slidein 7s infinite;
 }
 
-.addPhoto, .profile-div {
-  height: 89vh;
+.addPhoto, .profile-div, .login-form {
+  height: 80vh;
 }
 
-.addPhotoForm, .profile-div {
+.addPhotoForm, .profile-div, .login-form {
   padding-top: 10vh;
 }
 
