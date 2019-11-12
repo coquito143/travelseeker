@@ -5,7 +5,6 @@ import { addPhoto } from '../services/api-helper';
 
 
 export default class AddPhoto extends Component {
-  debugger;
   state = {
     userId: null,
     countryId: null,
@@ -41,7 +40,6 @@ export default class AddPhoto extends Component {
 
   render() {
     return (
-
       <div class="addPhoto">
         <form class="addPhotoForm" onSubmit={this.handleSubmit} >
           {/* <select>

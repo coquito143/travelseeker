@@ -10,7 +10,7 @@ html {
 nav {
   background-color: rgba(0, 0, 0, .6);
   color: white;
-  height: 7vh;
+  height: 10vh;
   width: 100vw;
   display: flex;
   flex-direction: row;
@@ -83,11 +83,11 @@ a:visited  {
   animation: slidein 7s infinite;
 }
 
-.addPhoto {
+.addPhoto, .profile-div {
   height: 89vh;
 }
 
-.addPhotoForm {
+.addPhotoForm, .profile-div {
   padding-top: 10vh;
 }
 

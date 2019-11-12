@@ -83,5 +83,11 @@ export const showPhotos = async (countryId) => {
 
 export const allPhotos = async () => {
   const resp = await api.get(`/photos`);
+  wait api.post(`/photos`, photoData);
+  return resp.data
+}
+
+export const getPhotos = async (id) => {
+  const resp = await api.get(`/photos/users/${id}`);
   return resp.data.photos
 }

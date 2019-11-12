@@ -28,6 +28,29 @@ photoRouter.get('/:id/country', async (req, res) => {
   res.json({ photos })
 })
 
+                
+photoRouter.get('/users/:userId', async (req, res) => {
+  //the next line will find who the country is. give me all the photos from the countryId
+  const userId = req.params.userId
+  const photos = await Photo.findAll({ where: { userId } })
+  res.json({ photos })
+})
+
+
+// show
+photoRouter.get('/:id', async (req, res) => {
+  const id = req.params.id
+  //the next line will find who the country is. give me all the photos from the countryId
+  // const countryId = req.params.countryId
+  // const photos = await Photo.findAll({ where: { countryId } })
+  const photos = await Photo.findAll({
+    where: {
+      countryId: id
+    }
+  })
+  res.json({ photos })
+})
+
 
 // show
 photoRouter.get('/:id/user', async (req, res) => {
@@ -38,11 +61,10 @@ photoRouter.get('/:id/user', async (req, res) => {
 
 // create
 photoRouter.post('/', async (req, res) => {
-  console.log(req)
+  
   const countryId = req.body.countryId
   const userId = req.body.userId
   const data = req.body
-  console.log(data)
   const country = await Country.findByPk(countryId)
   const user = await User.findByPk(userId)
   const photo = await Photo.create(data)
