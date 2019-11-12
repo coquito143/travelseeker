@@ -5,10 +5,9 @@ import { showPhotos } from '../services/api-helper';
 
 
 export default class SingleCountry extends Component {
-  debugger;
   state = {
     currentCountry: null,
-    currentCountryPhotos: null
+    photos: []
 
   }
 
@@ -19,23 +18,22 @@ export default class SingleCountry extends Component {
   }
 
   setCountryPhotos = async () => {
-    debugger
-    const photos = await showPhotos(this.state.currentCountry.id)
-    // const currentCountryPhotos = this.props.photos.find(photos => photos.id.countryId === parseInt(this.props.countryId))
-    // console.log(currentCountryPhotos)
-    this.setState({ currentCountryPhotos: photos })
+    // const photos = await showPhotos(this.state.currentCountry.id)
+    const currentCountryPhotos = this.props.photos.find(photo => photo.countryId === parseInt(this.props.photo.countryId))
+    this.setState({ currentCountryPhotos })
+    console.log(this.state.currentCountryPhotos)
+
   }
 
 
   async componentDidMount() {
-    debugger
     await this.setCurrentCountry();
-  
+
     if (this.state.currentCountry) {
       const photos = await showPhotos(this.state.currentCountry.id)
-      this.setState({ currentCountryPhotos: photos })
+      this.setState({ photos })
     }
-    
+
   }
 
   // componentDidUpdate(prevProps) {
@@ -45,7 +43,7 @@ export default class SingleCountry extends Component {
   // }
 
   render() {
-    console.log(this.props)
+    console.log(this.state)
     const { currentCountry } = this.state;
     const { currentUser } = this.props;
     return (
@@ -61,6 +59,13 @@ export default class SingleCountry extends Component {
             <p>Meal Cost: {currentCountry.meal_cost}</p>
             <p>Hostel Cost: {currentCountry.hostel_cost}</p>
             <p>Exchange Rate: </p>
+            {
+              this.state.photos.map(photo => (
+                <div className="user-Photos">
+                  <img src={photo.image_url} />
+                </div>
+              ))
+            }
             {currentUser &&
               <div>
                 <Link to={`/users/${currentUser.id}/countries/${currentCountry.id}/addphoto`}>
