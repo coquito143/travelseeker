@@ -95,15 +95,19 @@ class App extends Component {
           <h1>travel$eeker</h1>
           {
             currentUser ?
-              <div>
+              <div className="nav-right-div">
+                <div className="greeting-div">
                 <p>Hello, {currentUser.username}</p>
-                <br />
                 <Link to='/profile'>My Photos</Link>
-                <br />
-                <button onClick={this.handleLogout}>Logout</button>
+                </div>
+                <button className="logon-button"
+                  onClick={this.handleLogout}>Logout</button>
               </div>
               :
-              <Link to='/login'><button>Login/Register</button></Link>
+              <Link to='/login'>
+                <button className="logon-register-button">Login<br></br>or<br></br>Register
+                </button>
+              </Link>
           }
         </nav>
         {/* <Route exact path='/' render={() => (
