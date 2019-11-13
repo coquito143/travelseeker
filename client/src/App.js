@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Route, Link, withRouter } from 'react-router-dom';
-import { registerUser, loginUser, verifyUser, indexCountries, allPhotos, updatePhoto, currencyData } from './services/api-helper'
+import { registerUser, loginUser, verifyUser, indexCountries, allPhotos, updatePhoto, allRates, nepalRate, mexicoRate, sriLankaRate, indonesiaRate, croatiaRate, peruRate, turkeyRate, costaRicaRate, moroccoRate, thailandRate, dollarRate } from './services/api-helper'
 // import CountriesContainer from './components/CountriesContainer';
 import CountriesList from './components/CountriesList';
 import SingleCountry from './components/SingleCountry';
@@ -14,6 +14,18 @@ import UpdatePostForm from './components/UpdatePostForm'
 class App extends Component {
   state = {
     countries: [],
+    rates: [],
+    dollar: null,
+    nepalExchRate: null,
+    mexicoExchRate: null,
+    sriLankaExchRate: null,
+    indonesiaExchRate: null,
+    croatiaExchRate: null,
+    peruExchRate: null,
+    turkeyExchRate: null,
+    costaRicaExchRate: null,
+    moroccoExchRate: null,
+    thailandExchRate: null,
     currentUser: null,
     authErrorMessage: "",
     photos: []
@@ -76,11 +88,22 @@ class App extends Component {
     this.handleVerify();
     const countries = await indexCountries();
     const photos = await allPhotos()
-    const currency = await currencyData()
-    this.setState({ countries, photos })
+    const rates = await allRates();
+    const dollar = await dollarRate();
+    const nepalExchRate = await nepalRate();
+    const mexicoExchRate = await mexicoRate();
+    const sriLankaExchRate = await sriLankaRate();
+    const indonesiaExchRate = await indonesiaRate();
+    const croatiaExchRate = await croatiaRate();
+    const peruExchRate = await peruRate();
+    const turkeyExchRate = await turkeyRate();
+    const costaRicaExchRate = await costaRicaRate();
+    const moroccoExchRate = await moroccoRate();
+    const thailandExchRate = await thailandRate();
+    this.setState({ countries, photos, rates, nepalExchRate, mexicoExchRate, sriLankaExchRate, indonesiaExchRate, croatiaExchRate, peruExchRate, turkeyExchRate, costaRicaExchRate, moroccoExchRate, thailandExchRate, dollar })
     console.log(this.state.photos)
     console.log(photos)
-    console.log(currency)
+    console.log(rates)
   }
 
 
@@ -149,6 +172,18 @@ class App extends Component {
               countries={this.state.countries}
               currentUser={this.state.currentUser}
               photos={this.state.photos}
+              rates={this.state.rates}
+              dollar={this.state.dollar}
+              nepal={this.state.nepalExchRate}
+              mexico={this.state.mexicoExchRate}
+              sriLanka={this.state.sriLankaExchRate}
+              indonesia={this.state.indonesiaExchRate}
+              croatia={this.state.croatiaExchRate}
+              peru={this.state.peruExchRate}
+              turkey={this.state.turkeyExchRate}
+              costaRica={this.state.costaRicaExchRate}
+              morocco={this.state.moroccoExchRate}
+              thailand={this.state.thailandExchRate}
             />
           )} />
           <Route path='/profile' render={() => (
