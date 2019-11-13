@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { getPhotos } from '../services/api-helper';
-
+import { getPhotos, deletePhoto } from '../services/api-helper';
+import { Link } from 'react-router-dom'
 
 export default class Profile extends Component {
   constructor(props) {
@@ -12,7 +12,7 @@ export default class Profile extends Component {
   }
 
   componentDidMount = async () => {
-    console.log(this.props.currentUser.id)
+    // console.log(this.props.currentUser.id)
     // debugger;
     const response = await getPhotos(this.props.currentUser.id);
     // debugger;
@@ -21,6 +21,20 @@ export default class Profile extends Component {
       photos
     })
   }
+
+  handleDelete = async (e) => {
+    const id = e.target.id;
+    // debugger
+    const response = await deletePhoto(id);
+    console.log(response)
+    // debugger
+    this.setState(prevState => ({
+      photos: [...prevState.photos.filter(photo => photo.id !== parseInt(id))]
+    }))
+    // this.props.history.push('/profile')
+  }
+
+
 
   render() {
     return (
@@ -32,6 +46,9 @@ export default class Profile extends Component {
           <div className="user-photo-img-div">
             <img id="user-photo-img" src={photoObj.image_url} />
             <h3>{photoObj.description}</h3>
+            <Link to="/profile" >
+              <button id={photoObj.id} onClick={this.handleDelete}>Delete</button>
+            </Link>
           </div>
         ))}
 

@@ -21,7 +21,7 @@ export default class AddPhoto extends Component {
 
   handleSubmit = async (e) => {
     e.preventDefault()
-    debugger;
+    // debugger;
     const response = await addPhoto(this.state);
     const photo = response.data;
     // this.setState(prevState => ({

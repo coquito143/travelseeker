@@ -28,7 +28,7 @@ photoRouter.get('/:id/country', async (req, res) => {
   res.json({ photos })
 })
 
-                
+
 photoRouter.get('/users/:userId', async (req, res) => {
   //the next line will find who the country is. give me all the photos from the countryId
   const userId = req.params.userId
@@ -61,7 +61,7 @@ photoRouter.get('/:id/user', async (req, res) => {
 
 // create
 photoRouter.post('/', async (req, res) => {
-  
+
   const countryId = req.body.countryId
   const userId = req.body.userId
   const data = req.body
@@ -85,9 +85,10 @@ photoRouter.put('/:id', async (req, res) => {
 })
 
 // delete
-photoRouter.delete('/:id', async (req, res) => {
+photoRouter.delete('/users/:id', async (req, res) => {
   const id = req.params.id
   const photo = await Photo.findByPk(id);
+  // debugger
   await photo.destroy()
   res.json({ photo }) //this responds to the front end on what we destroyed
 })
