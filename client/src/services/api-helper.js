@@ -83,8 +83,8 @@ export const showPhotos = async (countryId) => {
 
 export const allPhotos = async (photoData) => {
   const resp = await api.get(`/photos`);
-  await api.post(`/photos`, photoData);
-  return resp.data
+  // await api.post(`/photos`, photoData);
+  return resp.data.photos
 }
 
 export const getPhotos = async (id) => {
@@ -92,8 +92,15 @@ export const getPhotos = async (id) => {
   return resp.data.photos
 }
 
+export const updatePhoto = async (id, PhotoData) => {
+  const resp = await api.put(`/photos/${id}`, PhotoData);
+  // debugger;
+  return resp.data.photo
+}
+
 export const deletePhoto = async (id) => {
   const resp = await api.delete(`/photos/users/${id}`);
   // debugger
   return resp.data
+
 }
