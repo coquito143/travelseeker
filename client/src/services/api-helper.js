@@ -92,6 +92,12 @@ export const getPhotos = async (id) => {
   return resp.data.photos
 }
 
+export const updatePhoto = async (id, PhotoData) => {
+  const resp = await api.put(`/photos/${id}`, PhotoData);
+  // debugger;
+  return resp.data.photo
+}
+
 export const deletePhoto = async (id) => {
   const resp = await api.delete(`/photos/users/${id}`);
   // debugger
