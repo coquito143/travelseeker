@@ -104,3 +104,10 @@ export const deletePhoto = async (id) => {
   return resp.data
 
 }
+
+// ============== third party API ===============
+
+export const currencyData = async () => {
+  let resp = await axios.get(`http://data.fixer.io/api/latest?access_key=3c63a6c3332e19892d0d4b2361130a4b&format=1`);
+  return resp.data.rates // return resp.data
+}
