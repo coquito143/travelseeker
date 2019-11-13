@@ -148,7 +148,6 @@ a:visited  {
 }
 
 #show-country-div {
-  height: 84vh;
   padding-top: 7vh;
 }
 
@@ -161,8 +160,50 @@ footer {
   background-color: rgba(0, 0, 0, .6);
   color: white;
   height: 7vh;
+
 }
 
 footer h3 {
   padding-top: 10px;
 }
+
+/* Single Country page below */
+
+/* body {
+  border: 4px solid hotpink;
+  height: 100%;
+  width: 100%;
+} */
+
+#sc-h1 {
+  border: 4px solid blue;
+}
+
+#sc-main-image {
+  border: 4px solid orange;
+  width: 80%;
+  height: 90%;
+  margin: auto;
+  margin-top: 10vh;
+}
+
+#sc-main-image img {
+  width: 100%;
+  height: 100%;
+}
+
+#sc-desc {
+  border: 4px solid maroon;
+}
+
+#sc-facts {
+ border: 4px solid gold;
+}
+
+.sc-user-Photos {
+  border: 4px solid black;
+}
+
+
+
+
