@@ -16,12 +16,13 @@ export default class UpdatePostForm extends Component {
     const { image_url, description} = this.state;
     return (
       <div className ='update-form-div'>
+      <h1 className='update-title'>Update Your Pictures</h1>
         <form className='photo-update-form' onSubmit={(e) => {
           e.preventDefault();
           console.log(this.state)
           this.props.updatePhoto(this.props.photoId, this.state);
         }}>
-          <label htmlFor="image_url">image url</label>
+          <label htmlFor="image_url">New Image url:</label>
           <input
             type="text"
             name="image_url"
@@ -30,7 +31,7 @@ export default class UpdatePostForm extends Component {
             onChange={this.handleChange}
           />
           <br />
-          <label htmlFor="description">description</label>
+          <label htmlFor="description">New Description:  </label>
           <input
             type="text"
             name="description"
@@ -38,7 +39,8 @@ export default class UpdatePostForm extends Component {
             value={description}
             onChange={this.handleChange}
           />
-          <button>Update</button>
+          <br/>
+          <button className='update-button'>Update</button>
         </form>
       </div>
     )
