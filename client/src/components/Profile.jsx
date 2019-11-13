@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { getPhotos } from '../services/api-helper';
-
+import {Link} from 'react-router-dom';
 
 export default class Profile extends Component {
   constructor(props) {
@@ -13,7 +13,7 @@ export default class Profile extends Component {
 
   componentDidMount = async () => {
     console.log(this.props.currentUser.id)
-    // debugger;
+    
     const response = await getPhotos(this.props.currentUser.id);
     // debugger;
     const photos = response;
@@ -32,6 +32,9 @@ export default class Profile extends Component {
           <div className="user-photo-img-div">
             <img id="user-photo-img" src={photoObj.image_url} />
             <h3>{photoObj.description}</h3>
+            <Link to={`/photo/${photoObj.id}`}>
+            <button>Update</button>
+            </Link>
           </div>
         ))}
 

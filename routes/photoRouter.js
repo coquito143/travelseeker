@@ -83,6 +83,15 @@ photoRouter.put('/:id', async (req, res) => {
   await photo.update(data)
   res.json({ photo })
 })
+// app.put('/characters/:id', async (req, res) => {
+//   const id = req.params.id;
+//   const data = req.body;
+//   await Character.update(data, {
+//     where: { id }
+//   });
+//   const character = await Character.findByPk(id)
+//   res.json({ character });
+// })
 
 // delete
 photoRouter.delete('/:id', async (req, res) => {

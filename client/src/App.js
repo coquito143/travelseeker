@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Route, Link, withRouter } from 'react-router-dom';
-import { registerUser, loginUser, verifyUser, indexCountries, allPhotos } from './services/api-helper'
+import { registerUser, loginUser, verifyUser, indexCountries, allPhotos, updatePhoto } from './services/api-helper'
 // import CountriesContainer from './components/CountriesContainer';
 import CountriesList from './components/CountriesList';
 import SingleCountry from './components/SingleCountry';
 import RegisterForm from './components/RegisterForm';
 import LoginForm from './components/LoginForm';
 import AddPhoto from './components/AddPhoto';
-import Profile from './components/Profile'
+import Profile from './components/Profile';
+import UpdatePostForm from './components/UpdatePostForm'
 
 class App extends Component {
   state = {
@@ -52,15 +53,31 @@ class App extends Component {
   handleVerify = async () => {
     const currentUser = await verifyUser();
     if (currentUser) {
-      this.setState({ currentUser })
+     this.setState({ currentUser })
     }
   }
+    
+  updatePhoto = async (id, PhotoData) => {
+    console.log(this.state)
+    // e.preventDefault();
+    // const id = parseInt(e.target.id);
+    const newPhoto = await updatePhoto(id, PhotoData);
+    // debugger;
+    // const currentPhoto = this.state.photos.find(photo => )
+    this.setState(prevState => ({
+      photos: prevState.photos.map(photo => 
+       photo.id === parseInt(id) ? newPhoto : photo)
+    }))
 
-  async componentDidMount() {
+    this.props.history.push('/profile')
+  }
+
+  componentDidMount=  async () => {
     this.handleVerify();
     const countries = await indexCountries();
     const photos = await allPhotos()
     this.setState({ countries, photos })
+    console.log(this.state.photos)
     console.log(photos)
   }
 
@@ -136,6 +153,12 @@ class App extends Component {
             <Profile
               currentUser={this.state.currentUser}
             />
+          )} />
+          <Route path='/photo/:id' render={(props) => (
+            <UpdatePostForm 
+            updatePhoto= {this.updatePhoto}
+            photoId={props.match.params.id}
+                />
           )} />
           <Route path='/users/:currentUser/countries/:countryId/addphoto' component={(props) => (
 

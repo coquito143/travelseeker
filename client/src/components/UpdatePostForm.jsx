@@ -2,34 +2,8 @@ import React, { Component } from 'react'
 
 export default class UpdatePostForm extends Component {
   state = {
-    title: "",
     image_url: "",
-    description: "",
-    fun_fact: ""
-  }
-
-  setFormData = () => {
-    if (this.props.posts.length) {
-      const {
-        title,
-        image_url,
-        description,
-        fun_fact,
-        ...otherData
-      } = this.props.posts.find(post => {
-        return post.id === parseInt(this.props.postId)
-      })
-      this.setState({
-        title,
-        image_url,
-        description,
-        fun_fact
-      })
-    }
-  }
-
-  componentDidMount() {
-    this.setFormData();
+    description: ""
   }
 
   handleChange = (e) => {
@@ -37,30 +11,16 @@ export default class UpdatePostForm extends Component {
     this.setState({ [name]: value })
   }
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.posts !== this.props.posts) {
-      this.setFormData();
-    }
-  }
 
   render() {
-    const { title, image_url, description, fun_fact } = this.state;
-
+    const { image_url, description} = this.state;
     return (
-      <div>
-        <form onSubmit={(e) => {
+      <div className ='update-form-div'>
+        <form className='photo-update-form' onSubmit={(e) => {
           e.preventDefault();
-          this.props.updatePost(this.props.postId, this.state);
+          console.log(this.state)
+          this.props.updatePhoto(this.props.photoId, this.state);
         }}>
-          <label htmlFor="title">title</label>
-          <input
-            type="text"
-            name="title"
-            id="title"
-            value={title}
-            onChange={this.handleChange}
-          />
-          <br />
           <label htmlFor="image_url">image url</label>
           <input
             type="text"
@@ -78,17 +38,7 @@ export default class UpdatePostForm extends Component {
             value={description}
             onChange={this.handleChange}
           />
-          <br />
-          <label htmlFor="fun_fact">fun fact</label>
-          <input
-            type="text"
-            name="fun_fact"
-            id="fun_fact"
-            value={fun_fact}
-            onChange={this.handleChange}
-          />
-          <br />
-          <button>Submit</button>
+          <button>Update</button>
         </form>
       </div>
     )
