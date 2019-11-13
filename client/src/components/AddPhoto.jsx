@@ -10,6 +10,7 @@ export default class AddPhoto extends Component {
     countryId: null,
     image_url: "",
     description: ""
+
   }
 
   handleChange = (e) => {
@@ -21,13 +22,19 @@ export default class AddPhoto extends Component {
 
   handleSubmit = async (e) => {
     e.preventDefault()
-    debugger;
+    // debugger;
     const response = await addPhoto(this.state);
     const photo = response.data;
-    // this.setState(prevState => ({
-    //   items: [...prevState.characters, character]
-    // }))
-    // this.props.history.push('/')
+    debugger
+    if (response.status === 200) {
+      alert("Your uplaod is a success!")
+    } else {
+      alert("Error, please try again")
+    }
+    this.setState({ image_url: '', description: '' })
+
+
+
   }
 
   componentDidMount = (props) => {
@@ -39,6 +46,7 @@ export default class AddPhoto extends Component {
   }
 
   render() {
+
     return (
       <div class="addPhoto">
         <form class="addPhotoForm" onSubmit={this.handleSubmit} >
