@@ -186,20 +186,20 @@ a:visited  {
   animation-name: bounce;
 }
 
-/* #cover-img-div i {
-  position: fixed;
-  top: -10;
-  right: 50;
-} */
-
-#countries-div {
-  /* height: 86vh; */
-  margin-top: 7vh;
+.cover-img-div {
+  background-color: black;
 }
 
 #show-country-div {
   /* height: 84vh; */
   padding-top: 7vh;
+}
+
+#countries-div-heading {
+  background-color: black;
+  color: white;
+  margin-top: 0;
+  margin-bottom: 3vh; 
 }
 
 .countries-list-div {
@@ -212,9 +212,14 @@ a:visited  {
 }
 
 .countries-list-div img {
-  width: 27vw;
+  width: 25vw;
   height: 20vw;
   margin: 10px;
+}
+
+.country-img:hover {
+  transform: scale(1.1);
+  border: 5px solid black;
 }
 
 img {
