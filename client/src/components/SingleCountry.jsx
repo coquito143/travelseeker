@@ -97,22 +97,27 @@ export default class SingleCountry extends Component {
       <div id="show-country-div">
         {currentCountry && (
           <>
-            <h1>{currentCountry.country_name}</h1>
-            <h2>Capital: {currentCountry.capital}</h2>
-            <img src={currentCountry.image_url} />
-            <p>{currentCountry.description}</p>
-            <p>Best Time to Visit: {currentCountry.best_time_to_visit}</p>
-            <p>Currency: {currentCountry.currency}</p>
-            <p>Meal Cost: {currentCountry.meal_cost}</p>
-            <p>Hostel Cost: {currentCountry.hostel_cost}</p>
-            <p>
-              Exchange Rate:
-              {this.state.exchangeRate}
+            <div id="sc-h1">
+              <h1>{currentCountry.country_name}</h1>
+            </div>
+            <div id="sc-main-image">
+              <img src={currentCountry.image_url} />
+            </div>
+            <div id="sc-desc">
+              <p>{currentCountry.description}</p>
+            </div>
+            <div id="sc-facts">
+              <p>Capital: {currentCountry.capital}</p>
+              <p>Best Time to Visit: {currentCountry.best_time_to_visit}</p>
+              <p>Currency: {currentCountry.currency}</p>
+              <p>Meal Cost: {currentCountry.meal_cost}</p>
+              <p>Hostel Cost: {currentCountry.hostel_cost}</p>
+              <p>Exchange Rate: {this.state.exchangeRate}</p>
+            </div>
 
-            </p>
             {
               this.state.photos.map(photo => (
-                <div className="user-Photos">
+                <div className="sc-user-Photos">
                   <img src={photo.image_url} />
                 </div>
               ))
@@ -126,6 +131,8 @@ export default class SingleCountry extends Component {
                     Add Pics
                 </button>
                 </Link>
+
+
                 {/* <Route path='/users/:currentUser/countries/:countryId/addphoto' component={(props) => (
                 
                 <AddPhoto

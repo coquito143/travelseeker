@@ -1,3 +1,4 @@
+/* General Styling */
 
 .App {
   text-align: center;
@@ -22,18 +23,71 @@ nav {
 h1, h2, h3 {
   font-family: 'Maven Pro', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
+.update-title, .add-title {
+  padding-top: 12vh;
+  margin: 5px;
+}
+
+button {
+  background-color: white;
+  color: black;
+  margin: 0 auto;
+}
+
+button:hover {
+  background-color: black;
+  color: white;
+  border: 1px solid grey;
+}
 
 #home-div {
   display: flex;
-  flex-direction: row;
-  align-content: center;
-  width: 150px;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-left: 1vh;
+  /* width: 150px; */
 }
 
 #home-div p {
-  display: inline;
-  padding-bottom: 4px;
+  margin: 0 auto;
+  padding-bottom: 10px;
+  padding-left: 10px;
 }
+
+.nav-right-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.logon-button {
+  width: 6vh;
+  height: 7vh;
+  border-radius: 5px;
+}
+
+.logon-register-button {
+  width: 9vh;
+  height: 7vh;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+.greeting-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+
+.nav-right-div p {
+  margin: 5px 10px;
+}
+
+.nav-right-div button {
+  margin-right: 10px;
+}
+
 
 .material-icons {
   margin-top: 1vh;
@@ -87,31 +141,10 @@ a:visited  {
   height: 80vh;
 }
 
-.addPhotoForm, .profile-div, .login-form, .photo-update-form {
+.profile-div, .login-form {
   padding-top: 10vh;
 }
 
-@keyframes showup {
-    0% {opacity:0;}
-    20% {opacity:1;}
-    80% {opacity:1;}
-    100% {opacity:0;}
-}
-
-@keyframes slidein {
-    0% { margin-left:-800px; }
-    20% { margin-left:-800px; }
-    35% { margin-left:0px; }
-    100% { margin-left:0px; }
-}
-
-@keyframes reveal {
-    0% {opacity:0;width:0px;}
-    20% {opacity:1;width:0px;}
-    30% {width:450px;}
-    80% {opacity:1;}
-    100% {opacity:0;width:450px;}
-}
 
 #arrow-down {
   color: white;
@@ -127,31 +160,45 @@ a:visited  {
   animation-iteration-count: infinite;
 }
 
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-  40% {transform: translateY(-30px);}
-  60% {transform: translateY(-15px);}
-}
+
 .bounce {
   animation-name: bounce;
 }
 
-/* #cover-img-div i {
-  position: fixed;
-  top: -10;
-  right: 50;
-} */
-
-#countries-div {
-  height: 86vh;
-  margin-top: 7vh;
+.cover-img-div {
+  background-color: black;
 }
 
 #show-country-div {
-  height: 84vh;
   padding-top: 7vh;
 }
 
+#countries-div-heading {
+  background-color: black;
+  color: white;
+  margin-top: 0;
+  margin-bottom: 3vh; 
+}
+
+.countries-list-div {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.countries-list-div h3 {
+  margin-top: 0;
+}
+
+.countries-list-div img {
+  width: 25vw;
+  height: 20vw;
+  margin: 10px;
+}
+
+.country-img:hover {
+  transform: scale(1.1);
+  border: 5px solid black;
+}
 
 img {
   width: 300px;
@@ -161,8 +208,120 @@ footer {
   background-color: rgba(0, 0, 0, .6);
   color: white;
   height: 7vh;
+
 }
 
 footer h3 {
   padding-top: 10px;
 }
+
+
+.photo-update-form, .addPhotoForm {
+ padding-top: 0vh;
+
+}
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  width:250px;
+  line-height: 20px;
+}
+input {
+  width: 100%; 
+  height: 30px;
+  padding: 5px; 
+  margin: 10px;
+  border-radius: 10px; 
+  box-sizing: border-box;
+  opacity: 0.8;
+  cursor: pointer;
+}
+.update-button, .add-button {
+  width: 90px;
+  height: 25px;
+  margin-left: 35%;
+  border-radius: 10px;
+
+}
+#user-photo-img {
+  width: 25vw;
+  height: 20vw;
+  background-size: contain;
+}
+
+.user-photo-img-div {
+  display: flexbox;
+  flex-direction: row;
+}
+
+/* ////////////////////////////////@media///////// */
+
+@keyframes showup {
+  0% {opacity:0;}
+  20% {opacity:1;}
+  80% {opacity:1;}
+  100% {opacity:0;}
+}
+
+@keyframes slidein {
+  0% { margin-left:-800px; }
+  20% { margin-left:-800px; }
+  35% { margin-left:0px; }
+  100% { margin-left:0px; }
+}
+
+@keyframes reveal {
+  0% {opacity:0;width:0px;}
+  20% {opacity:1;width:0px;}
+  30% {width:450px;}
+  80% {opacity:1;}
+  100% {opacity:0;width:450px;}
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+  40% {transform: translateY(-30px);}
+  60% {transform: translateY(-15px);}
+}
+=======
+/* Single Country page below */
+
+/* body {
+  border: 4px solid hotpink;
+  height: 100%;
+  width: 100%;
+} */
+
+#sc-h1 {
+  border: 4px solid blue;
+}
+
+#sc-main-image {
+  border: 4px solid orange;
+  width: 80%;
+  height: 90%;
+  margin: auto;
+  margin-top: 10vh;
+}
+
+#sc-main-image img {
+  width: 100%;
+  height: 100%;
+}
+
+#sc-desc {
+  border: 4px solid maroon;
+}
+
+#sc-facts {
+ border: 4px solid gold;
+}
+
+.sc-user-Photos {
+  border: 4px solid black;
+}
+
+
+
