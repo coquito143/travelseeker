@@ -124,7 +124,7 @@ const main = async () => {
     meal_cost: 120,
     hostel_cost: 300,
     image_url: 'https://www.ncl.com/sites/default/files/900px_South_Africa_Cruise_Safari_Shore_Excursions_shutterstock_786552829.jpg',
-    description: 'Thailand is perfect for budget-conscious backpackers looking for a tropical trip with a rich culture and (obvi) world-class cuisine. Students can enjoy traveling around Bangkok on as little as $20 a day. Wander around Buddhist temples and architectural masterpieces, then fill up on the renowned street food and authentic Thai iced tea from the roadside stores. Or get out of town and explore the country\'s exotic islands. If you’re looking for an unforgettable backpacking destination, Thailand is a solid choice.'
+    description: 'South Africa is a country on the southernmost tip of the African continent, marked by several distinct ecosystems. Inland safari destination Kruger National Park is populated by big game. The Western Cape offers beaches, lush winelands around Stellenbosch and Paarl, craggy cliffs at the Cape of Good Hope, forest and lagoons along the Garden Route, and the city of Cape Town, beneath flat-topped Table Mountain.'
   });
 
   await Country.create({
@@ -135,7 +135,7 @@ const main = async () => {
     meal_cost: 130,
     hostel_cost: 750,
     image_url: 'https://images.unsplash.com/photo-1458150945447-7fb764c11a92',
-    description: 'Thailand is perfect for budget-conscious backpackers looking for a tropical trip with a rich culture and (obvi) world-class cuisine. Students can enjoy traveling around Bangkok on as little as $20 a day. Wander around Buddhist temples and architectural masterpieces, then fill up on the renowned street food and authentic Thai iced tea from the roadside stores. Or get out of town and explore the country\'s exotic islands. If you’re looking for an unforgettable backpacking destination, Thailand is a solid choice.'
+    description: `In Czech towns and villages, you'll find a simple joy of life. The magic of Prague, the beauty of Český Krumlov, and the lyrical quality of the countryside relieve the heaviness caused by the turmoil that passed through here. Get beyond Prague and explore the country's medieval towns. These rugged woods and hilltop castles will make you feel as if you're walking through the garden of your childhood dreams.`
   });
 
   process.exit();
