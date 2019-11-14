@@ -8,10 +8,7 @@ export default class SingleCountry extends Component {
   state = {
     currentCountry: null,
     photos: [],
-    exchangeRate: "",
-    rates: [],
-    nepal: null
-
+    exchangeRate: null,
   }
 
   setCurrentCountry = async () => {
@@ -29,13 +26,8 @@ export default class SingleCountry extends Component {
       this.setState({ photos })
     }
 
-    const rates = await allRates();
-    // const oneCountryRate = await oneCountryRate();
-    this.setState({ rates })
-
-
     if (this.props.countryId === "1") {
-      const exchangeRate = (this.props.sriLanka) / (this.props.dollar)
+      const exchangeRate = (this.props.nepal) / (this.props.dollar)
       this.setState({ exchangeRate })
     }
 
@@ -79,6 +71,16 @@ export default class SingleCountry extends Component {
       this.setState({ exchangeRate })
     }
 
+    if (this.props.countryId === "11") {
+      const exchangeRate = (this.props.southAfrica) / (this.props.dollar)
+      this.setState({ exchangeRate })
+    }
+
+    if (this.props.countryId === "12") {
+      const exchangeRate = (this.props.czechRepublic) / (this.props.dollar)
+      this.setState({ exchangeRate })
+    }
+
   }
 
   // componentDidUpdate(prevProps) {
@@ -91,27 +93,45 @@ export default class SingleCountry extends Component {
     console.log(this.state)
     const { currentCountry } = this.state;
     const { currentUser } = this.props;
+    const { exchangeRate } = this.state;
+    const fixedExchangeRate = parseInt(exchangeRate).toFixed(2)
+
     return (
       <div id="show-country-div">
         {currentCountry && (
           <>
-            <div id="sc-h1">
-              <h1>{currentCountry.country_name}</h1>
+            <div id="sc-main-container">
+              <div id="sc-main-image">
+                <img src={currentCountry.image_url} />
+              </div>
+              <div id="sc-facts">
+                <div id="sc-h1-div">
+                  <h1>{currentCountry.country_name}</h1>
+                </div>
+                <p>Capital: {currentCountry.capital}</p>
+                <p>Best Time to Visit: {currentCountry.best_time_to_visit}</p>
+                <p>Currency: {currentCountry.currency}</p>
+                <p>Meal Cost: {currentCountry.meal_cost} US Dollars</p>
+                <p>Hostel Cost: {currentCountry.hostel_cost} US Dollars</p>
+              <p>Exchange Rate: {fixedExchangeRate} per US Dollar</p>
+                <p>{this.state.photos.length}</p>
+                <div id="sc-desc">
+                  <p>{currentCountry.description}</p>
+                </div>
+                {currentUser &&
+                  <div>
+                    <Link to={`/users/${currentUser.id}/countries/${currentCountry.id}/addphoto`}>
+                      <button
+                        id={currentUser.id}
+                        onClick={currentUser.handleClick}>
+                        Add Pics
+                      </button>
+                    </Link>
+                  </div>
+                }
+              </div>
             </div>
-            <div id="sc-main-image">
-              <img src={currentCountry.image_url} />
-            </div>
-            <div id="sc-desc">
-              <p>{currentCountry.description}</p>
-            </div>
-            <div id="sc-facts">
-              <p>Capital: {currentCountry.capital}</p>
-              <p>Best Time to Visit: {currentCountry.best_time_to_visit}</p>
-              <p>Currency: {currentCountry.currency}</p>
-              <p>Meal Cost: {currentCountry.meal_cost}</p>
-              <p>Hostel Cost: {currentCountry.hostel_cost}</p>
-              <p>Exchange Rate: {this.state.exchangeRate}</p>
-            </div>
+
 
             {
               this.state.photos.map(photo => (
@@ -120,6 +140,7 @@ export default class SingleCountry extends Component {
                 </div>
               ))
             }
+
             {currentUser &&
               <div>
                 <Link to={`/users/${currentUser.id}/countries/${currentCountry.id}/addphoto`}>

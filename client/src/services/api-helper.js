@@ -126,7 +126,7 @@ export const dollarRate = async () => {
 
 export const nepalRate = async (cou) => {
   let resp = await axios.get(`http://data.fixer.io/api/latest?access_key=027bdb6a24ffc566e6dae37f4a5acb29&format=1`);
-  let nepal = resp.data.rates
+  let nepal = resp.data.rates.NPR
   return nepal
   // return resp.data
 }
@@ -183,4 +183,16 @@ export const thailandRate = async () => {
   let resp = await axios.get(`http://data.fixer.io/api/latest?access_key=027bdb6a24ffc566e6dae37f4a5acb29&format=1`);
   let thailand = resp.data.rates.IDR
   return thailand
+}
+
+export const southAfricaRate = async () => {
+  let resp = await axios.get(`http://data.fixer.io/api/latest?access_key=027bdb6a24ffc566e6dae37f4a5acb29&format=1`);
+  let southAfrica = resp.data.rates.ZAR
+  return southAfrica
+}
+
+export const czechRepublicRate = async () => {
+  let resp = await axios.get(`http://data.fixer.io/api/latest?access_key=027bdb6a24ffc566e6dae37f4a5acb29&format=1`);
+  let czechRepublic = resp.data.rates.CZK
+  return czechRepublic
 }
