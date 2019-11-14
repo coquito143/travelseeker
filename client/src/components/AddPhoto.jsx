@@ -27,7 +27,7 @@ export default class AddPhoto extends Component {
     const photo = response.data;
     debugger
     if (response.status === 200) {
-      alert("Your uplaod is a success!")
+      alert("Your upload is a success!")
     } else {
       alert("Error, please try again")
     }
