@@ -110,10 +110,9 @@ export default class SingleCountry extends Component {
               <div id="sc-facts">
                 <h1 id="sc-h1">{currentCountry.country_name}</h1>
                 <p>Capital: {currentCountry.capital}</p>
-                <p>Currency: {currentCountry.currency}</p>
-                <p>Meal Cost: {currentCountry.meal_cost} US Dollars</p>
-                <p>Hostel Cost: {currentCountry.hostel_cost} US Dollars</p>
-                <p>Exchange Rate: {fixedExchangeRate} per US Dollar</p>
+                <p>Meal Cost: {parseInt(currentCountry.meal_cost / fixedExchangeRate).toFixed(2)} US Dollars </p>
+                <p>Hostel Cost: {parseInt(currentCountry.hostel_cost / fixedExchangeRate).toFixed(2)} US Dollars</p>
+                <p>Exchange Rate: {fixedExchangeRate} {currentCountry.currency} per US Dollar</p> 
                 <p id="visit"> Best Time to Visit: {currentCountry.best_time_to_visit}</p>
                 <div id="sc-desc">
                   <p>{currentCountry.description}</p>
