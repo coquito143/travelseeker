@@ -20,17 +20,15 @@ export default class SingleCountry extends Component {
     console.log(this.state.currentCountry)
   }
 
-  setCountryPhotos = async () => {
-    // const photos = await showPhotos(this.state.currentCountry.id)
-    const currentCountryPhotos = this.props.photos.find(photo => photo.countryId === parseInt(this.props.photo.countryId))
-    this.setState({ currentCountryPhotos })
-    console.log(this.state.currentCountryPhotos)
-
-  }
-
 
   async componentDidMount() {
     await this.setCurrentCountry();
+
+    if (this.state.currentCountry) {
+      const photos = await showPhotos(this.state.currentCountry.id)
+      this.setState({ photos })
+    }
+
     const rates = await allRates();
     // const oneCountryRate = await oneCountryRate();
     this.setState({ rates })
@@ -132,33 +130,9 @@ export default class SingleCountry extends Component {
                 </button>
                 </Link>
 
-
-                {/* <Route path='/users/:currentUser/countries/:countryId/addphoto' component={(props) => (
-                
-                <AddPhoto
-                  {...props}
-                  countryId={props.match.params.countryId}
-                  userId={props.match.params.currentUser}
-                  />
-                )}
-                /> */}
-                {/* <Route exact path='/users/:currentUser/addphoto' Component={AddPhoto} /> */}
-
               </div>
             }
 
-
-            {/* // move this to user photo section */}
-            {/* {
-              currentUser && currentUser.id === currentCountry.userId && (
-                <>
-                  <button onClick={() => {
-                    this.props.destroyCountry(currentCountry.id)
-                  }}>Delete</button>
-                  <Link to={`/countries/${currentCountry.id}/edit`}><button>Edit</button></Link>
-                </>
-              )
-            } */}
           </>
         )}
       </div>
