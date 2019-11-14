@@ -137,7 +137,7 @@ a:visited  {
   animation: slidein 7s infinite;
 }
 
-.addPhoto, .profile-div, .login-form, .update-form-div{
+.addPhoto,  .login-form, .update-form-div{
   height: 80vh;
 }
 
@@ -169,9 +169,6 @@ a:visited  {
   background-color: black;
 }
 
-#show-country-div {
-  padding-top: 7vh;
-}
 
 #countries-div-heading {
   background-color: black;
@@ -248,12 +245,28 @@ input {
 #user-photo-img {
   width: 25vw;
   height: 20vw;
-  background-size: contain;
+  margin: 10px;
+}
+#user-photo-img:hover {
+  transform: scale(1.1);
+  border: 5px solid black;
 }
 
 .user-photo-img-div {
-  display: flexbox;
-  flex-direction: row;
+  display: inline-block;
+  justify-content: space-evenly;
+}
+.profile-div {
+  background-color: brown;
+}
+.update-profile-button {
+  width: 60px;
+  height: 20px;
+  border-radius: 10px;
+
+}
+.profile-description-text {
+  font-size: 12px;
 }
 
 /* ////////////////////////////////@media///////// */
@@ -285,23 +298,33 @@ input {
   40% {transform: translateY(-30px);}
   60% {transform: translateY(-15px);}
 }
-=======
+
 /* Single Country page below */
 
-/* body {
-  border: 4px solid hotpink;
-  height: 100%;
-  width: 100%;
-} */
-
-#sc-h1 {
-  border: 4px solid blue;
+#show-country-div {
+  padding-top: 10vh;
 }
+
+#sc-main-container {
+  /* margin-top: 100px; */
+  /* padding-top: 20px; */
+  border: 10px solid green;
+  display: flex;
+}
+
+
+#sc-h1-div h1 {
+  border: 4px solid blue;
+  font-size: 4em;
+  letter-spacing: 3px;
+}
+
+
 
 #sc-main-image {
   border: 4px solid orange;
-  width: 80%;
-  height: 90%;
+  width: 200vw;
+  height: 70vh;
   margin: auto;
   margin-top: 10vh;
 }
@@ -313,15 +336,17 @@ input {
 
 #sc-desc {
   border: 4px solid maroon;
+  padding-left: 25px;
+  padding-right: 25px;
 }
 
 #sc-facts {
- border: 4px solid gold;
+ border: 7px solid hotpink;
+ margin-top: 80px;
+ /* padding: 10px; */
 }
 
 .sc-user-Photos {
-  border: 4px solid black;
+  border: 4px solid purple;
 }
-
-
 
