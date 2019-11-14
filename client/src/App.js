@@ -122,8 +122,8 @@ class App extends Component {
             currentUser ?
               <div className="nav-right-div">
                 <div className="greeting-div">
-                <p>Hello, {currentUser.username}</p>
-                <Link to='/profile'>My Photos</Link>
+                  <p>Hello, {currentUser.username}</p>
+                  <Link to='/profile'>My Photos</Link>
                 </div>
                 <button className="logon-button"
                   onClick={this.handleLogout}>Logout</button>
