@@ -46,7 +46,7 @@ export default class Profile extends Component {
         {this.state.photos.map(photoObj => (
           <div className="user-photo-img-div">
             <img id="user-photo-img" src={photoObj.image_url} />
-            <h3>{photoObj.description}</h3>
+            <h3 className='profile-description-text'>{photoObj.description}</h3>
 {/* //Update Photo Button */}
             <Link to={`/photo/${photoObj.id}`}>
             <button className='update-profile-button'>Update</button>
