@@ -60,6 +60,7 @@ export default class AddPhoto extends Component {
               ))
             }
           </select> */}
+          <h1 className='add-title'>Add a Photo</h1>
           <label htmlFor="image_url">Image URL</label>
           <input
             type="text"
@@ -78,7 +79,7 @@ export default class AddPhoto extends Component {
             onChange={this.handleChange}
           />
           <br />
-          <button>Submit Photo</button>
+          <button className='add-button'>Submit Photo</button>
         </form>
       </div>
     )

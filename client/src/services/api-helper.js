@@ -103,3 +103,95 @@ export const deletePhoto = async (id) => {
   // debugger
   return resp.data
 }
+
+// ============== third party API ===============
+
+export const allRates = async () => {
+  let resp = await axios.get(`http://data.fixer.io/api/latest?access_key=027bdb6a24ffc566e6dae37f4a5acb29&format=1`);
+  return resp.data.rates
+}
+
+// export const oneCountryRate = async (code) => {
+//   let resp = await axios.get(`http://data.fixer.io/api/latest?access_key=3c63a6c3332e19892d0d4b2361130a4b&format=1`);
+//   return resp.data.rates.code
+
+// }
+
+export const dollarRate = async () => {
+  let resp = await axios.get(`http://data.fixer.io/api/latest?access_key=027bdb6a24ffc566e6dae37f4a5acb29&format=1`);
+  return resp.data.rates.USD
+
+}
+
+export const nepalRate = async (cou) => {
+  let resp = await axios.get(`http://data.fixer.io/api/latest?access_key=027bdb6a24ffc566e6dae37f4a5acb29&format=1`);
+  let nepal = resp.data.rates.NPR
+  return nepal
+  // return resp.data
+}
+
+export const mexicoRate = async () => {
+  let resp = await axios.get(`http://data.fixer.io/api/latest?access_key=027bdb6a24ffc566e6dae37f4a5acb29&format=1`);
+  let mexico = resp.data.rates.MXN
+  return mexico
+}
+
+export const sriLankaRate = async () => {
+  let resp = await axios.get(`http://data.fixer.io/api/latest?access_key=027bdb6a24ffc566e6dae37f4a5acb29&format=1`);
+  let sriLanka = resp.data.rates.LKR
+  return sriLanka
+}
+
+export const indonesiaRate = async () => {
+  let resp = await axios.get(`http://data.fixer.io/api/latest?access_key=027bdb6a24ffc566e6dae37f4a5acb29&format=1`);
+  let indonesia = resp.data.rates.IDR
+  return indonesia
+}
+
+export const croatiaRate = async () => {
+  let resp = await axios.get(`http://data.fixer.io/api/latest?access_key=027bdb6a24ffc566e6dae37f4a5acb29&format=1`);
+  let croatia = resp.data.rates.HRK
+  return croatia
+}
+
+export const peruRate = async () => {
+  let resp = await axios.get(`http://data.fixer.io/api/latest?access_key=027bdb6a24ffc566e6dae37f4a5acb29&format=1`);
+  let peru = resp.data.rates.PEN
+  return peru
+}
+
+export const turkeyRate = async () => {
+  let resp = await axios.get(`http://data.fixer.io/api/latest?access_key=027bdb6a24ffc566e6dae37f4a5acb29&format=1`);
+  let turkey = resp.data.rates.TRY
+  return turkey
+}
+
+export const costaRicaRate = async () => {
+  let resp = await axios.get(`http://data.fixer.io/api/latest?access_key=027bdb6a24ffc566e6dae37f4a5acb29&format=1`);
+  let costaRica = resp.data.rates.CRC
+  return costaRica
+}
+
+export const moroccoRate = async () => {
+  let resp = await axios.get(`http://data.fixer.io/api/latest?access_key=027bdb6a24ffc566e6dae37f4a5acb29&format=1`);
+  let morocco = resp.data.rates.MAD
+  return morocco
+}
+
+export const thailandRate = async () => {
+  let resp = await axios.get(`http://data.fixer.io/api/latest?access_key=027bdb6a24ffc566e6dae37f4a5acb29&format=1`);
+  let thailand = resp.data.rates.IDR
+  return thailand
+}
+
+export const southAfricaRate = async () => {
+  let resp = await axios.get(`http://data.fixer.io/api/latest?access_key=027bdb6a24ffc566e6dae37f4a5acb29&format=1`);
+  let southAfrica = resp.data.rates.ZAR
+  return southAfrica
+}
+
+export const czechRepublicRate = async () => {
+  let resp = await axios.get(`http://data.fixer.io/api/latest?access_key=027bdb6a24ffc566e6dae37f4a5acb29&format=1`);
+  let czechRepublic = resp.data.rates.CZK
+  return czechRepublic
+}

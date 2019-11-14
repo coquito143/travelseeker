@@ -41,20 +41,20 @@ export default class Profile extends Component {
     return (
 
       <div class="profile-div">
-        <h1>Profile Page</h1>
+        <h1>My Pictures</h1>
 
         {this.state.photos.map(photoObj => (
           <div className="user-photo-img-div">
             <img id="user-photo-img" src={photoObj.image_url} />
+
             <h3>{photoObj.description}</h3>
 
-
             <Link to={`/photo/${photoObj.id}`}>
-            <button>Update</button>
+            <button className='update-profile-button'>Update</button>
                </Link>
 
             <Link to="/profile" >
-              <button id={photoObj.id} onClick={this.handleDelete}>Delete</button>
+              <button className='update-profile-button' id={photoObj.id} onClick={this.handleDelete}>Delete</button>
             </Link>
           </div>
         ))}
