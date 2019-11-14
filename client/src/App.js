@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Route, Link, withRouter } from 'react-router-dom';
-import { registerUser, loginUser, verifyUser, indexCountries, allPhotos, updatePhoto, allRates, nepalRate, mexicoRate, sriLankaRate, indonesiaRate, croatiaRate, peruRate, turkeyRate, costaRicaRate, moroccoRate, thailandRate, dollarRate } from './services/api-helper'
+import { registerUser, loginUser, verifyUser, indexCountries, allPhotos, updatePhoto, allRates, nepalRate, mexicoRate, sriLankaRate, indonesiaRate, croatiaRate, peruRate, turkeyRate, costaRicaRate, moroccoRate, thailandRate, southAfricaRate, czechRepublicRate, dollarRate } from './services/api-helper'
 // import CountriesContainer from './components/CountriesContainer';
 import CountriesList from './components/CountriesList';
 import SingleCountry from './components/SingleCountry';
@@ -26,6 +26,8 @@ class App extends Component {
     costaRicaExchRate: null,
     moroccoExchRate: null,
     thailandExchRate: null,
+    southAfricaExchRate: null,
+    czechRepublicExchRate: null,
     currentUser: null,
     authErrorMessage: "",
     photos: []
@@ -100,7 +102,9 @@ class App extends Component {
     const costaRicaExchRate = await costaRicaRate();
     const moroccoExchRate = await moroccoRate();
     const thailandExchRate = await thailandRate();
-    this.setState({ countries, photos, rates, nepalExchRate, mexicoExchRate, sriLankaExchRate, indonesiaExchRate, croatiaExchRate, peruExchRate, turkeyExchRate, costaRicaExchRate, moroccoExchRate, thailandExchRate, dollar })
+    const southAfricaExchRate = await southAfricaRate();
+    const czechRepublicExchRate = await czechRepublicRate()
+    this.setState({ countries, photos, rates, nepalExchRate, mexicoExchRate, sriLankaExchRate, indonesiaExchRate, croatiaExchRate, peruExchRate, turkeyExchRate, costaRicaExchRate, moroccoExchRate, thailandExchRate, southAfricaExchRate, czechRepublicExchRate, dollar })
     console.log(this.state.photos)
     console.log(photos)
     console.log(rates)
@@ -188,6 +192,9 @@ class App extends Component {
               costaRica={this.state.costaRicaExchRate}
               morocco={this.state.moroccoExchRate}
               thailand={this.state.thailandExchRate}
+              southAfrica={this.state.southAfricaExchRate}
+              czechRepublic={this.state.czechRepublicExchRate}
+
             />
           )} />
           <Route path='/profile' render={() => (
