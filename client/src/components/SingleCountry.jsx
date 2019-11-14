@@ -95,23 +95,38 @@ export default class SingleCountry extends Component {
       <div id="show-country-div">
         {currentCountry && (
           <>
-            <div id="sc-h1">
-              <h1>{currentCountry.country_name}</h1>
+            <div id="sc-main-container">
+              <div id="sc-main-image">
+                <img src={currentCountry.image_url} />
+              </div>
+              <div id="sc-facts">
+                <div id="sc-h1-div">
+                  <h1>{currentCountry.country_name}</h1>
+                </div>
+                <p>Capital: {currentCountry.capital}</p>
+                <p>Best Time to Visit: {currentCountry.best_time_to_visit}</p>
+                <p>Currency: {currentCountry.currency}</p>
+                <p>Meal Cost: {currentCountry.meal_cost}</p>
+                <p>Hostel Cost: {currentCountry.hostel_cost}</p>
+                <p>Exchange Rate: {this.state.exchangeRate}</p>
+                <p>{this.state.photos.length}</p>
+                <div id="sc-desc">
+                  <p>{currentCountry.description}</p>
+                </div>
+                {currentUser &&
+                  <div>
+                    <Link to={`/users/${currentUser.id}/countries/${currentCountry.id}/addphoto`}>
+                      <button
+                        id={currentUser.id}
+                        onClick={currentUser.handleClick}>
+                        Add Pics
+                      </button>
+                    </Link>
+                  </div>
+                }
+              </div>
             </div>
-            <div id="sc-main-image">
-              <img src={currentCountry.image_url} />
-            </div>
-            <div id="sc-desc">
-              <p>{currentCountry.description}</p>
-            </div>
-            <div id="sc-facts">
-              <p>Capital: {currentCountry.capital}</p>
-              <p>Best Time to Visit: {currentCountry.best_time_to_visit}</p>
-              <p>Currency: {currentCountry.currency}</p>
-              <p>Meal Cost: {currentCountry.meal_cost}</p>
-              <p>Hostel Cost: {currentCountry.hostel_cost}</p>
-              <p>Exchange Rate: {this.state.exchangeRate}</p>
-            </div>
+
 
             {
               this.state.photos.map(photo => (
@@ -120,6 +135,7 @@ export default class SingleCountry extends Component {
                 </div>
               ))
             }
+
             {currentUser &&
               <div>
                 <Link to={`/users/${currentUser.id}/countries/${currentCountry.id}/addphoto`}>
