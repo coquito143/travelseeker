@@ -20,17 +20,15 @@ export default class SingleCountry extends Component {
     console.log(this.state.currentCountry)
   }
 
-  setCountryPhotos = async () => {
-    // const photos = await showPhotos(this.state.currentCountry.id)
-    const currentCountryPhotos = this.props.photos.find(photo => photo.countryId === parseInt(this.props.photo.countryId))
-    this.setState({ currentCountryPhotos })
-    console.log(this.state.currentCountryPhotos)
-
-  }
-
 
   async componentDidMount() {
     await this.setCurrentCountry();
+
+    if (this.state.currentCountry) {
+      const photos = await showPhotos(this.state.currentCountry.id)
+      this.setState({ photos })
+    }
+
     const rates = await allRates();
     // const oneCountryRate = await oneCountryRate();
     this.setState({ rates })
@@ -136,6 +134,19 @@ export default class SingleCountry extends Component {
                   <img src={photo.image_url} />
                 </div>
               ))
+            }
+
+            {currentUser &&
+              <div>
+                <Link to={`/users/${currentUser.id}/countries/${currentCountry.id}/addphoto`}>
+                  <button
+                    id={currentUser.id}
+                    onClick={currentUser.handleClick}>
+                    Add Pics
+                </button>
+                </Link>
+
+              </div>
             }
 
           </>
