@@ -97,7 +97,6 @@ export const updatePhoto = async (id, PhotoData) => {
 export const deletePhoto = async (id) => {
   const resp = await api.delete(`/photos/users/${id}`);
   return resp.data
-
 }
 
 // ============== third party API ===============

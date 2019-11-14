@@ -151,7 +151,7 @@ a:visited  {
   font-size: 4em;
   position: absolute;
   top: 85%;
-  left: 50%;
+  left: 48%;
 }
 
 .animated {
@@ -175,6 +175,7 @@ a:visited  {
   color: white;
   margin-top: 0;
   margin-bottom: 3vh; 
+  padding-bottom: 2vh;
 }
 
 .countries-list-div {
@@ -198,12 +199,18 @@ a:visited  {
 }
 
 img {
-  width: 300px;
+  width: 100%;
+  height: 100%;
+}
+
+#registration-div {
+  padding-top: 10vh;
+  min-height: 80vh;
 }
 
 footer {
-  background-color: rgba(0, 0, 0, .6);
-  color: white;
+  color: rgba(0, 0, 0, .6);
+  background-color: white;
   height: 7vh;
 
 }
@@ -220,7 +227,7 @@ footer h3 {
 form {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   margin: 0 auto;
   width:250px;
   line-height: 20px;
@@ -267,53 +274,66 @@ input {
   font-size: 12px;
 }
 
+
 #show-country-div {
   padding-top: 10vh;
-}
+
 
 /* Single Country page below */
 
 
 #sc-main-container {
-  border: 10px solid green;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 
-#sc-h1-div h1 {
-  border: 4px solid blue;
+#sc-h1 {
+  /* border: 4px solid blue; */
   font-size: 4em;
   letter-spacing: 3px;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 
 
 #sc-main-image {
-  border: 4px solid orange;
-  width: 200vw;
-  height: 70vh;
+  /* border: 4px solid orange; */
+  width: 100%;
+  /* height: 70%; */
   margin: auto;
-  margin-top: 10vh;
+  margin-top: 0vh;
 }
 
 #sc-main-image img {
-  width: 100%;
-  height: 100%;
+  width: 50vw;
+  height: 60vh;
+  padding: 5vh 0 5vh 5vh;
 }
 
+/* 
 #sc-desc {
-  border: 4px solid maroon;
+  border: 4px solid maroon; 
   padding-left: 25px;
   padding-right: 25px;
-}
+  padding-bottom: -25px;
+} */
 
 #sc-facts {
- border: 7px solid hotpink;
- margin-top: 80px;
+ height: 70%;
+ margin-top: 8vh;
+text-align: left;
+margin-left: 7vh;
+margin-right: 7vh;
+}
+#travelers-photos-div {
+  background-color: rgba(0, 0, 0, .6);
+  color: white;
 }
 
-.sc-user-Photos {
-  border: 4px solid purple;
+#travelers-photos-div button {
+  margin: 20px;
 }
 
 
@@ -347,4 +367,29 @@ input {
   60% {transform: translateY(-15px);}
 }
 
+
+#travelers-photos-subheader {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#photos-div-h2 {
+  padding-top: 3vh;
+  margin-bottom: 0;
+  width: 100%;
+}
+
+#photos-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.sc-user-Photos {
+  border: 4px solid white;
+  margin: 3vh;
+  width: 28vw;
+  height: 20vw;
+}
 
