@@ -169,9 +169,6 @@ a:visited  {
   background-color: black;
 }
 
-#show-country-div {
-  padding-top: 7vh;
-}
 
 #countries-div-heading {
   background-color: black;
@@ -294,14 +291,33 @@ input {
   width: 100%;
 } */
 
+
+/* I'm not sure what this is doing */
+#show-country-div {
+  /* padding-top: 7vh; */
+}
+
+#sc-main-container {
+  /* margin-top: 100px; */
+  /* padding-top: 20px; */
+  border: 10px solid green;
+  display: flex;
+}
+
+
 #sc-h1 {
   border: 4px solid blue;
 }
 
+h1 {
+  font-size: 50px;
+  letter-spacing: 4px;
+}
+
 #sc-main-image {
   border: 4px solid orange;
-  width: 80%;
-  height: 90%;
+  width: 200vw;
+  height: 70vh;
   margin: auto;
   margin-top: 10vh;
 }
@@ -313,15 +329,24 @@ input {
 
 #sc-desc {
   border: 4px solid maroon;
+  padding-left: 25px;
+  padding-right: 25px;
 }
 
 #sc-facts {
- border: 4px solid gold;
+ border: 7px solid hotpink;
+ margin-top: 80px;
+ /* padding: 10px; */
 }
 
 .sc-user-Photos {
-  border: 4px solid black;
+  border: 4px solid purple;
 }
 
 
-
+/* melanie's example
+.countries-list-div img {
+  width: 25vw;
+  height: 20vw;
+  margin: 10px;
+} */
