@@ -30,7 +30,6 @@ photoRouter.get('/:id/country', async (req, res) => {
 
 
 photoRouter.get('/users/:userId', async (req, res) => {
-  //the next line will find who the country is. give me all the photos from the countryId
   const userId = req.params.userId
   const photos = await Photo.findAll({ where: { userId } })
   res.json({ photos })
@@ -40,9 +39,6 @@ photoRouter.get('/users/:userId', async (req, res) => {
 // show
 photoRouter.get('/:id', async (req, res) => {
   const id = req.params.id
-  //the next line will find who the country is. give me all the photos from the countryId
-  // const countryId = req.params.countryId
-  // const photos = await Photo.findAll({ where: { countryId } })
   const photos = await Photo.findAll({
     where: {
       countryId: id
@@ -68,8 +64,6 @@ photoRouter.post('/', async (req, res) => {
   const country = await Country.findByPk(countryId)
   const user = await User.findByPk(userId)
   const photo = await Photo.create(data)
-  //below: we are grabbing the photo and telling it who the country is
-  //this will also make sure one photo only has one country
   await photo.setCountry(country)
   await photo.setUser(user)
   res.json({ photo })
@@ -83,23 +77,13 @@ photoRouter.put('/:id', async (req, res) => {
   await photo.update(data)
   res.json({ photo })
 })
-// app.put('/characters/:id', async (req, res) => {
-//   const id = req.params.id;
-//   const data = req.body;
-//   await Character.update(data, {
-//     where: { id }
-//   });
-//   const character = await Character.findByPk(id)
-//   res.json({ character });
-// })
 
 // delete
 photoRouter.delete('/users/:id', async (req, res) => {
   const id = req.params.id
   const photo = await Photo.findByPk(id);
-  // debugger
   await photo.destroy()
-  res.json({ photo }) //this responds to the front end on what we destroyed
+  res.json({ photo }) 
 })
 
 

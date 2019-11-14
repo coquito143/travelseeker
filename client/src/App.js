@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import { Route, Link, withRouter } from 'react-router-dom';
 import { registerUser, loginUser, verifyUser, indexCountries, allPhotos, updatePhoto, allRates, nepalRate, mexicoRate, sriLankaRate, indonesiaRate, croatiaRate, peruRate, turkeyRate, costaRicaRate, moroccoRate, thailandRate, southAfricaRate, czechRepublicRate, dollarRate } from './services/api-helper'
-// import CountriesContainer from './components/CountriesContainer';
 import CountriesList from './components/CountriesList';
 import SingleCountry from './components/SingleCountry';
 import RegisterForm from './components/RegisterForm';
@@ -72,12 +71,7 @@ class App extends Component {
   }
 
   updatePhoto = async (id, PhotoData) => {
-    console.log(this.state)
-    // e.preventDefault();
-    // const id = parseInt(e.target.id);
     const newPhoto = await updatePhoto(id, PhotoData);
-    // debugger;
-    // const currentPhoto = this.state.photos.find(photo => )
     this.setState(prevState => ({
       photos: prevState.photos.map(photo =>
         photo.id === parseInt(id) ? newPhoto : photo)
@@ -105,9 +99,7 @@ class App extends Component {
     const southAfricaExchRate = await southAfricaRate();
     const czechRepublicExchRate = await czechRepublicRate()
     this.setState({ countries, photos, rates, nepalExchRate, mexicoExchRate, sriLankaExchRate, indonesiaExchRate, croatiaExchRate, peruExchRate, turkeyExchRate, costaRicaExchRate, moroccoExchRate, thailandExchRate, southAfricaExchRate, czechRepublicExchRate, dollar })
-    console.log(this.state.photos)
-    console.log(photos)
-    console.log(rates)
+    
   }
 
 
@@ -139,11 +131,7 @@ class App extends Component {
               </Link>
           }
         </nav>
-        {/* <Route exact path='/' render={() => (
-          <CountriesContainer
-            currentUser={this.state.currentUser}
-          />
-        )} /> */}
+
         <main>
 
           <Route exact path='/' render={() => (
@@ -175,7 +163,6 @@ class App extends Component {
 
           <Route exact path='/countries/:id' render={(props) => (
             <SingleCountry
-              // destroyCountry={this.destroyPost}
               countryId={props.match.params.id}
               countries={this.state.countries}
               currentUser={this.state.currentUser}
@@ -217,12 +204,6 @@ class App extends Component {
             />
           )}
           />
-          {/* <Route exact path='/users/:currentUser/addphoto' render={(props) => (
-            <AddPhoto
-              countries={this.state.countries}
-            />
-          )}
-          /> */}
         </main>
         <footer>
           <h3>&#169; 2019 Team ASMI</h3>

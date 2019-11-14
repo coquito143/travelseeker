@@ -67,9 +67,7 @@ export const destroyCountry = async (id) => {
 }
 
 export const addPhoto = async (photoData) => {
-  // debugger
   const resp = await api.post(`/photos`, photoData);
-  console.log(resp)
   return resp
 }
 
@@ -83,7 +81,6 @@ export const showPhotos = async (countryId) => {
 
 export const allPhotos = async (photoData) => {
   const resp = await api.get(`/photos`);
-  // await api.post(`/photos`, photoData);
   return resp.data.photos
 }
 
@@ -94,13 +91,11 @@ export const getPhotos = async (id) => {
 
 export const updatePhoto = async (id, PhotoData) => {
   const resp = await api.put(`/photos/${id}`, PhotoData);
-  // debugger;
   return resp.data.photo
 }
 
 export const deletePhoto = async (id) => {
   const resp = await api.delete(`/photos/users/${id}`);
-  // debugger
   return resp.data
 
 }
@@ -112,11 +107,6 @@ export const allRates = async () => {
   return resp.data.rates
 }
 
-// export const oneCountryRate = async (code) => {
-//   let resp = await axios.get(`http://data.fixer.io/api/latest?access_key=3c63a6c3332e19892d0d4b2361130a4b&format=1`);
-//   return resp.data.rates.code
-
-// }
 
 export const dollarRate = async () => {
   let resp = await axios.get(`http://data.fixer.io/api/latest?access_key=027bdb6a24ffc566e6dae37f4a5acb29&format=1`);
@@ -128,7 +118,6 @@ export const nepalRate = async (cou) => {
   let resp = await axios.get(`http://data.fixer.io/api/latest?access_key=027bdb6a24ffc566e6dae37f4a5acb29&format=1`);
   let nepal = resp.data.rates.NPR
   return nepal
-  // return resp.data
 }
 
 export const mexicoRate = async () => {

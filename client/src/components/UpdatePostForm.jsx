@@ -19,7 +19,6 @@ export default class UpdatePostForm extends Component {
       <h1 className='update-title'>Update Your Pictures</h1>
         <form className='photo-update-form' onSubmit={(e) => {
           e.preventDefault();
-          console.log(this.state)
           this.props.updatePhoto(this.props.photoId, this.state);
         }}>
           <label htmlFor="image_url">New Image url:</label>

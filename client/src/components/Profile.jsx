@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-
 import { getPhotos, deletePhoto } from '../services/api-helper';
 import { Link } from 'react-router-dom'
 
@@ -16,7 +15,6 @@ export default class Profile extends Component {
   componentDidMount = async () => {
 
     const response = await getPhotos(this.props.currentUser.id);
-    // debugger;
     const photos = response;
     this.setState({
       photos
@@ -25,14 +23,10 @@ export default class Profile extends Component {
 
   handleDelete = async (e) => {
     const id = e.target.id;
-    // debugger
     const response = await deletePhoto(id);
-    console.log(response)
-    // debugger
     this.setState(prevState => ({
       photos: [...prevState.photos.filter(photo => photo.id !== parseInt(id))]
     }))
-    // this.props.history.push('/profile')
   }
 
 
@@ -43,15 +37,16 @@ export default class Profile extends Component {
       <div class="profile-div">
         <h1>{this.props.currentUser.username}'s Pictures</h1>
 
+
         {this.state.photos.map(photoObj => (
           <div className="user-photo-img-div">
             <img id="user-photo-img" src={photoObj.image_url} />
             <h3 className='profile-description-text'>{photoObj.description}</h3>
-{/* //Update Photo Button */}
+
             <Link to={`/photo/${photoObj.id}`}>
             <button className='update-profile-button'>Update</button>
                </Link>
-{/* //Delete Photo Button */}
+
             <Link to="/profile" >
               <button className='update-profile-button' id={photoObj.id} onClick={this.handleDelete}>Delete</button>
             </Link>
