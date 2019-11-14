@@ -5,6 +5,7 @@ import { getPhotos, deletePhoto } from '../services/api-helper';
 import { Link } from 'react-router-dom'
 
 
+
 export default class Profile extends Component {
   constructor(props) {
     super(props)
@@ -14,7 +15,6 @@ export default class Profile extends Component {
   }
 
   componentDidMount = async () => {
-
     const response = await getPhotos(this.props.currentUser.id);
     // debugger;
     const photos = response;
@@ -46,12 +46,13 @@ export default class Profile extends Component {
         {this.state.photos.map(photoObj => (
           <div className="user-photo-img-div">
             <img id="user-photo-img" src={photoObj.image_url} />
-            <h3 className='profile-description-text'>{photoObj.description}</h3>
-{/* //Update Photo Button */}
+
+            <h3>{photoObj.description}</h3>
+
             <Link to={`/photo/${photoObj.id}`}>
             <button className='update-profile-button'>Update</button>
                </Link>
-{/* //Delete Photo Button */}
+
             <Link to="/profile" >
               <button className='update-profile-button' id={photoObj.id} onClick={this.handleDelete}>Delete</button>
             </Link>
