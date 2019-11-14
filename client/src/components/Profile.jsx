@@ -41,7 +41,7 @@ export default class Profile extends Component {
     return (
 
       <div class="profile-div">
-        <h1>My Pictures</h1>
+        <h1>{this.props.currentUser.username}'s Pictures</h1>
 
         {this.state.photos.map(photoObj => (
           <div className="user-photo-img-div">
@@ -55,6 +55,7 @@ export default class Profile extends Component {
             <Link to="/profile" >
               <button className='update-profile-button' id={photoObj.id} onClick={this.handleDelete}>Delete</button>
             </Link>
+           
           </div>
         ))}
 

@@ -137,12 +137,13 @@ a:visited  {
   animation: slidein 7s infinite;
 }
 
-.addPhoto,  .login-form, .update-form-div{
+.addPhoto, .login-form, .update-form-div{
   height: 80vh;
 }
 
 .profile-div, .login-form {
   padding-top: 10vh;
+  padding-bottom: 2vh;
 }
 
 
@@ -259,9 +260,7 @@ input {
   display: inline-block;
   justify-content: space-evenly;
 }
-.profile-div {
-  background-color: brown;
-}
+
 .update-profile-button {
   width: 60px;
   height: 20px;
