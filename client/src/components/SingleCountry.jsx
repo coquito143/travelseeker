@@ -102,7 +102,7 @@ export default class SingleCountry extends Component {
                 <img src={currentCountry.image_url} />
               </div>
               <div id="sc-facts">
-                <div id="sc-h1">
+                <div id="sc-h1-div">
                   <h1>{currentCountry.country_name}</h1>
                 </div>
                 <p>Capital: {currentCountry.capital}</p>

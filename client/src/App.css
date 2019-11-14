@@ -282,19 +282,12 @@ input {
   40% {transform: translateY(-30px);}
   60% {transform: translateY(-15px);}
 }
-=======
+
+
 /* Single Country page below */
 
-/* body {
-  border: 4px solid hotpink;
-  height: 100%;
-  width: 100%;
-} */
-
-
-/* I'm not sure what this is doing */
 #show-country-div {
-  /* padding-top: 7vh; */
+  padding-top: 10vh;
 }
 
 #sc-main-container {
@@ -305,14 +298,13 @@ input {
 }
 
 
-#sc-h1 {
+#sc-h1-div h1 {
   border: 4px solid blue;
+  font-size: 4em;
+  letter-spacing: 3px;
 }
 
-h1 {
-  font-size: 50px;
-  letter-spacing: 4px;
-}
+
 
 #sc-main-image {
   border: 4px solid orange;
@@ -343,10 +335,3 @@ h1 {
   border: 4px solid purple;
 }
 
-
-/* melanie's example
-.countries-list-div img {
-  width: 25vw;
-  height: 20vw;
-  margin: 10px;
-} */
