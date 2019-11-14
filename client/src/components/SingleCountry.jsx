@@ -14,7 +14,6 @@ export default class SingleCountry extends Component {
   setCurrentCountry = async () => {
     const currentCountry = await this.props.countries.find(country => country.id === parseInt(this.props.countryId))
     this.setState({ currentCountry })
-    console.log(this.state.currentCountry)
   }
 
 
@@ -83,14 +82,8 @@ export default class SingleCountry extends Component {
 
   }
 
-  // componentDidUpdate(prevProps) {
-  //   if (prevProps.countryId !== this.props.countryId) {
-  //     this.setCurrentCountry();
-  //   }
-  // }
 
   render() {
-    console.log(this.state)
     const { currentCountry } = this.state;
     const { currentUser } = this.props;
     const { exchangeRate } = this.state;

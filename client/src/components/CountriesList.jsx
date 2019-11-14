@@ -22,7 +22,6 @@ export default function CountriesList(props) {
         </React.Fragment>
         ))}
         </div>
-      {/* <Link to="/country/new"><button>Add an post</button></Link> */}
     </div>
   )
 }

@@ -22,10 +22,9 @@ export default class AddPhoto extends Component {
 
   handleSubmit = async (e) => {
     e.preventDefault()
-    // debugger;
     const response = await addPhoto(this.state);
     const photo = response.data;
-    debugger
+  
     if (response.status === 200) {
       alert("Your upload is a success!")
     } else {
@@ -50,16 +49,6 @@ export default class AddPhoto extends Component {
     return (
       <div class="addPhoto">
         <form class="addPhotoForm" onSubmit={this.handleSubmit} >
-          {/* <select>
-            {
-              this.props.countries.map((country) => (
-                <option key={country.id}
-                  value={country.id}>
-                  {country.country_name}
-                </option>
-              ))
-            }
-          </select> */}
           <h1 className='add-title'>Add a Photo</h1>
           <label htmlFor="image_url">Image URL</label>
           <input
